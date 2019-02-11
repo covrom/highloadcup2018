@@ -1,0 +1,374 @@
+minLen: 12 maxLen: 35
+"te" cnt=41451
+"ne" cnt=31303
+"se" cnt=29003
+"he" cnt=28243
+"re" cnt=27543
+"ta" cnt=26549
+"to" cnt=24398
+"ti" cnt=22774
+"et" cnt=20440
+"na" cnt=20123
+"de" cnt=19906
+"sa" cnt=18522
+"no" cnt=18368
+"ha" cnt=18305
+"le" cnt=18238
+"ra" cnt=17939
+"ni" cnt=17230
+"so" cnt=17132
+"ho" cnt=16410
+"ro" cnt=16231
+"si" cnt=15790
+"en" cnt=15517
+"hi" cnt=15361
+"ri" cnt=15211
+"es" cnt=14446
+"eh" cnt=13784
+"er" cnt=13771
+"at" cnt=13246
+"da" cnt=12885
+"ce" cnt=12850
+"ot" cnt=12398
+"la" cnt=12100
+"do" cnt=11708
+"it" cnt=11352
+"me" cnt=11100
+"we" cnt=10909
+"di" cnt=10851
+"lo" cnt=10818
+"li" cnt=10263
+"fe" cnt=10156
+"an" cnt=10029
+"ed" cnt=9761
+"ge" cnt=9282
+"as" cnt=9273
+"on" cnt=9114
+"el" cnt=9099
+"ah" cnt=9085
+"tu" cnt=8880
+"pe" cnt=8859
+"ar" cnt=8798
+"in" cnt=8610
+"os" cnt=8490
+"oh" cnt=8454
+"ca" cnt=8257
+"or" cnt=8112
+"is" cnt=8008
+"ih" cnt=7780
+"co" cnt=7604
+"ir" cnt=7532
+"ma" cnt=7094
+"wa" cnt=7085
+"ci" cnt=7064
+"be" cnt=6830
+"nu" cnt=6687
+"ty" cnt=6546
+"fa" cnt=6492
+"wo" cnt=6448
+"mo" cnt=6424
+"ad" cnt=6338
+"ec" cnt=6298
+"su" cnt=6199
+"al" cnt=6079
+"wi" cnt=6079
+"ga" cnt=5993
+"mi" cnt=5983
+"fo" cnt=5943
+"hu" cnt=5932
+"ru" cnt=5866
+"od" cnt=5790
+"fi" cnt=5602
+"pa" cnt=5557
+"em" cnt=5532
+"go" cnt=5501
+"ol" cnt=5454
+"ew" cnt=5441
+"id" cnt=5404
+"po" cnt=5303
+"gi" cnt=5179
+"ef" cnt=5032
+"il" cnt=5027
+"ny" cnt=4932
+"pi" cnt=4853
+"ve" cnt=4534
+"eg" cnt=4524
+"sy" cnt=4505
+"ut" cnt=4444
+"ba" cnt=4396
+"ep" cnt=4372
+"ry" cnt=4345
+"hy" cnt=4330
+"du" cnt=4099
+"bo" cnt=4081
+"ac" cnt=4051
+"lu" cnt=3924
+"oc" cnt=3753
+"bi" cnt=3749
+"am" cnt=3571
+"aw" cnt=3554
+"ic" cnt=3528
+"eb" cnt=3438
+"un" cnt=3309
+"om" cnt=3285
+"af" cnt=3277
+"ke" cnt=3245
+"ow" cnt=3239
+"yt" cnt=3175
+"dy" cnt=3166
+"us" cnt=3117
+"iw" cnt=3061
+"im" cnt=3054
+"uh" cnt=3002
+"ur" cnt=2997
+"va" cnt=2976
+"ag" cnt=2941
+"of" cnt=2908
+"ap" cnt=2848
+"ly" cnt=2846
+"if" cnt=2753
+"og" cnt=2729
+"vo" cnt=2694
+"cu" cnt=2632
+"vi" cnt=2610
+"ig" cnt=2596
+"op" cnt=2549
+"ip" cnt=2505
+"yn" cnt=2478
+"ev" cnt=2331
+"mu" cnt=2316
+"wu" cnt=2279
+"yh" cnt=2252
+"fu" cnt=2239
+"ab" cnt=2221
+"ys" cnt=2211
+"yr" cnt=2190
+"ud" cnt=2173
+"ka" cnt=2006
+"cy" cnt=1998
+"gu" cnt=1924
+"ob" cnt=1916
+"ib" cnt=1905
+"ul" cnt=1904
+"ko" cnt=1837
+"pu" cnt=1818
+"ki" cnt=1799
+"my" cnt=1754
+"wy" cnt=1705
+"ek" cnt=1655
+"fy" cnt=1596
+"yd" cnt=1529
+"gy" cnt=1466
+"bu" cnt=1445
+"av" cnt=1445
+"yl" cnt=1443
+"py" cnt=1401
+"uc" cnt=1378
+"ov" cnt=1307
+"iv" cnt=1228
+"uw" cnt=1186
+"um" cnt=1166
+"by" cnt=1123
+"uf" cnt=1101
+"yc" cnt=1024
+"vu" cnt=1013
+"up" cnt=1011
+"ak" cnt=999
+"ok" cnt=994
+"ug" cnt=976
+"yw" cnt=900
+"ik" cnt=837
+"ym" cnt=815
+"yf" cnt=771
+"yg" cnt=712
+"ub" cnt=712
+"ku" cnt=699
+"vy" cnt=690
+"yp" cnt=649
+"yb" cnt=540
+"ky" cnt=491
+"qe" cnt=469
+"uv" cnt=462
+"je" cnt=461
+"xe" cnt=461
+"ze" cnt=455
+"yv" cnt=367
+"uk" cnt=330
+"qa" cnt=313
+"xa" cnt=301
+"qo" cnt=296
+"ja" cnt=290
+"xo" cnt=285
+"jo" cnt=277
+"za" cnt=268
+"zo" cnt=260
+"ji" cnt=258
+"yk" cnt=252
+"xi" cnt=252
+"ez" cnt=251
+"eq" cnt=243
+"ex" cnt=241
+"zi" cnt=230
+"qi" cnt=230
+"ej" cnt=223
+"az" cnt=156
+"aj" cnt=152
+"ax" cnt=148
+"iq" cnt=148
+"aq" cnt=145
+"oz" cnt=143
+"ix" cnt=124
+"iz" cnt=122
+"ij" cnt=121
+"ox" cnt=117
+"oj" cnt=116
+"oq" cnt=116
+"ju" cnt=105
+"qu" cnt=91
+"zu" cnt=91
+"xu" cnt=89
+"xy" cnt=82
+"qy" cnt=71
+"jy" cnt=66
+"zy" cnt=65
+"uz" cnt=63
+"uq" cnt=57
+"ux" cnt=50
+"uj" cnt=49
+"yz" cnt=35
+"yx" cnt=35
+"yq" cnt=33
+"yj" cnt=27
+
+'e' code=101 cnt=2264064
+'a' code=97 cnt=1461917
+'t' code=116 cnt=1435549
+'o' code=111 cnt=1338583
+'i' code=105 cnt=1247753
+'n' code=110 cnt=1084194
+'s' code=115 cnt=1001617
+'h' code=104 cnt=974167
+'r' code=114 cnt=956689
+'d' code=100 cnt=685945
+'l' code=108 cnt=637930
+'u' code=117 cnt=482565
+'c' code=99 cnt=445516
+'m' code=109 cnt=382661
+'w' code=119 cnt=381689
+'y' code=121 cnt=355915
+'f' code=102 cnt=350699
+'g' code=103 cnt=319515
+'p' code=112 cnt=303093
+'b' code=98 cnt=239534
+'v' code=118 cnt=159485
+'k' code=107 cnt=111716
+'q' code=113 cnt=16057
+'z' code=122 cnt=16007
+'j' code=106 cnt=16005
+'x' code=120 cnt=15953
+'K' code=75 cnt=8
+'F' code=70 cnt=7
+'U' code=85 cnt=7
+'A' code=65 cnt=7
+'R' code=82 cnt=7
+'.' code=46 cnt=7
+'S' code=83 cnt=7
+'Z' code=90 cnt=6
+'O' code=79 cnt=6
+'D' code=68 cnt=6
+'J' code=74 cnt=6
+'2' code=50 cnt=6
+'Y' code=89 cnt=6
+'I' code=73 cnt=5
+'X' code=88 cnt=5
+'M' code=77 cnt=5
+'N' code=78 cnt=5
+'E' code=69 cnt=5
+'0' code=48 cnt=5
+'B' code=66 cnt=5
+'W' code=87 cnt=5
+'-' code=45 cnt=5
+'L' code=76 cnt=4
+'5' code=53 cnt=4
+'_' code=95 cnt=4
+'G' code=71 cnt=4
+'8' code=56 cnt=4
+'Q' code=81 cnt=4
+'6' code=54 cnt=4
+'T' code=84 cnt=4
+'9' code=57 cnt=3
+'H' code=72 cnt=3
+'7' code=55 cnt=3
+'C' code=67 cnt=3
+'1' code=49 cnt=3
+'4' code=52 cnt=3
+'V' code=86 cnt=3
+'3' code=51 cnt=2
+'P' code=80 cnt=2
+
+'e' code=101 cnt=2664114
+'o' code=111 cnt=2539122
+'a' code=97 cnt=2261982
+'i' code=105 cnt=2048027
+'r' code=114 cnt=1755220
+'m' code=109 cnt=1684112
+'t' code=116 cnt=1535203
+'n' code=110 cnt=1384622
+'l' code=108 cnt=1337727
+'.' code=46 cnt=1300007
+'@' code=64 cnt=1300000
+'c' code=99 cnt=1246355
+'u' code=117 cnt=1181446
+'s' code=115 cnt=1101271
+'h' code=104 cnt=1073901
+'d' code=100 cnt=886001
+'y' code=121 cnt=756830
+'b' code=98 cnt=539521
+'g' code=103 cnt=419147
+'w' code=119 cnt=381689
+'f' code=102 cnt=350699
+'x' code=120 cnt=316381
+'p' code=112 cnt=303093
+'v' code=118 cnt=159485
+'k' code=107 cnt=111716
+'q' code=113 cnt=16057
+'z' code=122 cnt=16007
+'j' code=106 cnt=16005
+'K' code=75 cnt=8
+'U' code=85 cnt=7
+'F' code=70 cnt=7
+'S' code=83 cnt=7
+'A' code=65 cnt=7
+'R' code=82 cnt=7
+'2' code=50 cnt=6
+'Y' code=89 cnt=6
+'J' code=74 cnt=6
+'D' code=68 cnt=6
+'Z' code=90 cnt=6
+'O' code=79 cnt=6
+'N' code=78 cnt=5
+'B' code=66 cnt=5
+'M' code=77 cnt=5
+'E' code=69 cnt=5
+'0' code=48 cnt=5
+'X' code=88 cnt=5
+'I' code=73 cnt=5
+'W' code=87 cnt=5
+'-' code=45 cnt=5
+'G' code=71 cnt=4
+'T' code=84 cnt=4
+'8' code=56 cnt=4
+'Q' code=81 cnt=4
+'_' code=95 cnt=4
+'L' code=76 cnt=4
+'5' code=53 cnt=4
+'6' code=54 cnt=4
+'V' code=86 cnt=3
+'1' code=49 cnt=3
+'H' code=72 cnt=3
+'7' code=55 cnt=3
+'9' code=57 cnt=3
+'4' code=52 cnt=3
+'C' code=67 cnt=3
+'3' code=51 cnt=2
+'P' code=80 cnt=2

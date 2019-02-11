@@ -1,0 +1,28 @@
+# ---> Go
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, build with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+dockercreds
+highloadcup2018
+debug
+test_accounts/data/data.zip 
+test_accounts/*
+test_accounts0/data/data.zip
+test_accounts1/data/data.zip
+test_accounts0/*
+test_accounts1/*
+test_accounts2/data/data.zip
+test_accounts2/*
+test_accountsA/data/data.zip
+test_accountsA/*
+intsearch.o
