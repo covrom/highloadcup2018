@@ -58,9 +58,9 @@ func main() {
 	recommend.StatusTricky = db.SmAcc.Status.ToDictonary("всё сложно") //2
 	recommend.StatusFree = db.SmAcc.Status.ToDictonary("свободны")     //3
 
-	// go tool pprof -seconds 180 ./github.com/covrom/highloadcup2018 http://127.0.0.1:8080/debug/pprof/profile
-	// go tool pprof -alloc_objects ./github.com/covrom/highloadcup2018 http://127.0.0.1:8080/debug/pprof/heap
-	// go tool pprof -inuse_space ./github.com/covrom/highloadcup2018 http://127.0.0.1:8080/debug/pprof/heap
+	// go tool pprof -seconds 180 ./highloadcup2018 http://127.0.0.1:8080/debug/pprof/profile
+	// go tool pprof -alloc_objects ./highloadcup2018 http://127.0.0.1:8080/debug/pprof/heap
+	// go tool pprof -inuse_space ./highloadcup2018 http://127.0.0.1:8080/debug/pprof/heap
 
 	// go http.ListenAndServe(":8080", nil)
 
