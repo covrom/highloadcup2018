@@ -28,5 +28,7 @@ func LineInsert(a *heapInts, num int) {
 			return
 		}
 	}
-	*a = append(*a, num)
+	if len(*a) < heapLimit {
+		*a = append(*a, num)
+	}
 }
