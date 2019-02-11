@@ -811,8 +811,3 @@ func (iter *MergeIterator) HasNext() bool {
 func (iter *MergeIterator) NextID() IDAcc {
 	return iter.currid
 }
-
-// REQUEST  URI: /accounts/filter/?query_id=826&sex_eq=m&interests_any=%D0%A2%D1%83%D1%84%D0%BB%D0%B8&status_neq=%D1%81%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%BD%D1%8B&limit=4
-// REQUEST BODY: <EMPTY>
-// BODY   GOT: {"accounts":[{"id":29931,"email":"sedtunes@inbox.ru","sex":"m","status":"заняты"},{"id":29873,"email":"neledpul@inbox.ru","sex":"m","status":"заняты"},{"id":29809,"email":"hudticuteenniot@yahoo.com","sex":"m","status":"всё сложно"},{"id":29807,"email":"herilonmahepus@list.ru","sex":"m","status":"свободны"}]}
-// BODY   EXP: {"accounts":[{"sex":"m","email":"sedtunes@inbox.ru","status":"заняты","id":29931},{"sex":"m","email":"neledpul@inbox.ru","status":"заняты","id":29873},{"sex":"m","email":"hudticuteenniot@yahoo.com","status":"всё сложно","id":29809},{"sex":"m","email":"omalesrenelbinot@yandex.ru","status":"заняты","id":29627}]}
