@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)https://highloadcup.ru/media/condition/accounts_rules.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Task 2018</title>
+    <link rel="stylesheet" href="./Task 2018_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./Task 2018_files/github.min.css">
+    <link rel="icon" type="image/png" href="https://highloadcup.ru/static/core/img/favicon_rect.png">
+    <script src="./Task 2018_files/jquery-3.1.1.min.js"></script>
+    <script src="./Task 2018_files/bootstrap.min.js"></script>
+    <script src="./Task 2018_files/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>body {font-size: 12pt} .subheader { font-size: 14pt; } li { margin-bottom: 8px; } li li { margin-bottom: 0; } .alert { margin: 0 -15px 20px; } @media (max-width: 770px) { ol, ul { padding-left: 20px; } }</style>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-target" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="https://highloadcup.ru/media/condition/accounts_rules.html#">Highload Cup 2018</a>
+            </div>
+             <div class="collapse navbar-collapse" id="navbar-target">
+                 <ul class="nav navbar-nav">
+                     <li><a href="https://highloadcup.ru/media/condition/accounts_rules.html#legend">Легенда</a></li>
+                     <li><a href="https://highloadcup.ru/media/condition/accounts_rules.html#rules">Правила</a></li>
+                     <li><a href="https://highloadcup.ru/media/condition/accounts_rules.html#entities">Данные</a></li>
+                     <li><a href="https://highloadcup.ru/media/condition/accounts_rules.html#api-get">API (get)</a></li>
+                     <li><a href="https://highloadcup.ru/media/condition/accounts_rules.html#api-post">API (post)</a></li>
+                 </ul>
+             </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <h2>Highload Cup 2018 (Task)</h2>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-9">
+                <p class="alert alert-success">
+                    Добро пожаловать, участник Highload Cup 2018! Внимательно прочитай правила и ТЗ на задачу, изложенные ниже. Если что-то непонятно, не получается или появились идеи, как все это улучшить, ты всегда можешь написать на <a href="mailto:cups@corp.mail.ru">cups@corp.mail.ru</a> или в
+                    <a href="https://t.me/highloadcup">Telegram</a>. Удачи в нашем конкурсе!
+                </p>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-9">
+                <p class="subheader"><strong id="legend">Легенда соревнования</strong></p>
+                <p>В альтернативной реальности человечество решило создать и запустить глобальную систему по поиску "вторых половинок". Такая система призвана уменьшить количество одиноких людей в мире и способствовать созданию крепких семей.</p>
+                <p>Участникам соревнования Highload Cup 2018 предлагается выступить в роли инженера, которому заказали создание прототипа подобной системы. Прототип должен как можно быстрее выдавать правильные ответы на запросы сторонних сервисов, которые делают что-то с ответами (например, отображают пользователям в красивых интерфейсах). По сути, он должен служить для внешних гипотетических сервисов функциональным API.</p>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-9">
+                <p class="subheader"><strong id="rules">1. Правила участия в конкурсе</strong></p>
+                <p>Для того чтобы начать, %username%, расчехли свою любимую IDE и скачай архив с тестовыми <a href="https://highloadcup.ru/media/condition/accounts_rules.html#entities">данными</a> в формате JSON с сайта проведения конкурса <a href="https://highloadcup.ru/">https://highloadcup.ru</a>. Тебе необходимо сначала создать, а затем и развернуть производительный сервер приложения, который будет реализовывать необходимое Web API к этим данным. Обрати внимание, что решения будут приниматься в виде docker-контейнеров. Что это такое - читай ниже.</p>
+                <p>Ты можешь использовать любые веб-технологии, которые сможешь найти или придумать. Выбери свой собственный язык программирования и фреймворк. Это может быть C++, Java + Tomcat, Python + Django, Ruby + RoR, GoLang, JavaScript + NodeJs, Haskell или что-то еще, на твоё усмотрение. Также и для хранения данных: MySQL, PostgreSQL, Redis, MongoDB, кэши - up-to-you! Обрати внимание, <strong>в конкурсе оценивается не только кол-во верных ответов на запросы, но и скорость работы сервера</strong> - выбирай осторожно!</p>
+                <p>Сначала обкатай своё решение локально на тестовых данных. А когда будешь готов, собери из него docker-контейнер и залей его в систему проведения конкурса. Соответствующие команды написаны на <a href="https://highloadcup.ru/media/condition/accounts_rules.html#">странице с задачей</a>. После заливки контейнера, на той же странице появится запись о принятом решении и о постановке его в очередь на предварительный обстрел.</p>
+                <p class="alert alert-warning"><strong>Особенность 1.</strong> Если одно и то же решение заливается дважды без изменений, то система не будет отправлять его на обстрел. В каждом решении должны быть, пусть минимальные, отличия от предыдущих.</p>
+                <p>Будет происходить следующее:
+                    </p><ol>
+                        <li>Решение отправится на тестирующую машину с процессором Intel Core i7. Решению будут выделены 4 ядра по 2.4 GHz, 2 GB оперативной памяти и 10 GB жёсткого диска.</li>
+                        <li>Решение будет запущено как docker-контейнер (docker run). В случае возникновения ошибок запуска, они будут показаны на странице сайта с логом обстрела.</li>
+                        <li>После запуска контейнера в папке /tmp/data будет доступен файл data.zip с архивированными "боевыми" данными (примерно 10 MB данных для предварительного и 1 GB для полного обстрела). Обратите внимание, что каталог /tmp/data доступен только для чтения, поэтому решение должно загружать архив в ОЗУ для обработки. В самом архиве будут лежать файлы с названиями вида "accounts_&lt;номер файла&gt;.json". Внутри таких файлов - валидные данные в формате JSON.<br>Пример структуры приведён ниже: <br><br>
+                            <pre><code class="json hljs">{<span class="hljs-attr">"accounts"</span>: [
+    {
+        <span class="hljs-attr">"id"</span>: <span class="hljs-number">10003</span>,
+        <span class="hljs-attr">"fname"</span>: <span class="hljs-string">"Мария"</span>,
+        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"ewheten@icloud.com"</span>,
+        <span class="hljs-attr">"interests"</span>: [
+            <span class="hljs-string">"Красное вино"</span>,
+            <span class="hljs-string">"Стейк"</span>,
+            <span class="hljs-string">"Вкусно поесть"</span>
+        ],
+        <span class="hljs-attr">"status"</span>: <span class="hljs-string">"свободны"</span>,
+        <span class="hljs-attr">"premium"</span>: {
+            <span class="hljs-attr">"start"</span>: <span class="hljs-number">1533321770</span>,
+            <span class="hljs-attr">"finish"</span>: <span class="hljs-number">1533321770</span>
+        },
+        <span class="hljs-attr">"sex"</span>: <span class="hljs-string">"f"</span>,
+        <span class="hljs-attr">"phone"</span>: <span class="hljs-string">"8(985)4076805"</span>,
+        <span class="hljs-attr">"likes"</span>: [
+            {
+                <span class="hljs-attr">"ts"</span>: <span class="hljs-number">1476378752</span>,
+                <span class="hljs-attr">"id"</span>: <span class="hljs-number">41803</span>
+            },
+            ...
+        ],
+        <span class="hljs-attr">"birth"</span>: <span class="hljs-number">870172195</span>,
+        <span class="hljs-attr">"city"</span>: <span class="hljs-string">"Испляндия"</span>,
+        <span class="hljs-attr">"country"</span>: <span class="hljs-string">"Кроноштадт"</span>,
+        <span class="hljs-attr">"joined"</span>: <span class="hljs-number">1450137600</span>
+    },
+    ... // дальше ещё много аккаунтов
+]</code></pre>
+                        </li>
+                        <li>У решения есть фиксированное время до начала обстрела, чтобы залить эти данные в собственную базу данных и подготовить их к обработке (1 минута для предварительного и 10 минут для полного обстрела).</li>
+                        <li>По истечении этого времени начинается обстрел запросами из указанных в разделе <a href="https://highloadcup.ru/media/condition/accounts_rules.html#api">API</a>. длительность обстрела составляет 90 секунд для предварительного и 9 минут для полного рейтингового обстрела. Важно - сервер должен слушать 80-й порт, чтобы обстрел прошел успешно! Запросы идут с заголовком Host: accounts.com по протоколу HTTP/1.1 с переиспользуемыми соединениями (keep-alive). Сетевые потери полностью отсутствуют.</li>
+                        <li>Результаты и ошибки обстрела ты увидишь на сайте, на странице с деталями решения в секциях "Обстрел" и "Результаты" соответственно.</li>
+                    </ol>
+                <p></p>
+                <p class="alert alert-warning">
+                    <strong>Особенность 2.</strong>
+                    При замеченных попытках хакерских атак на сервера проведения конкурса Highload Cup 2018, участнику выдаётся бан, а результаты обстрела не засчитываются.
+                </p>
+                <p>Обратите внимание! Предварительный обстрел запускается автоматически и нужен для тестирования решений на малой нагрузке. По такому обстрелу показываются результаты в виде графиков, но не считается рейтинг. Для участия в рейтинге, необходимо вручную запустить рейтинговый обстрел, который проводится в гораздо более хардкорных условиях. Количество рейтинговых обстрелов ограничено, 4 запусками в 12 часов.</p>
+                <p>Результаты рейтинговых обстрелов всех участников будут сводиться в таблицу на сайте. Лучшие из лучших получат призы!</p>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-9">
+                <p class="subheader"><strong id="entities">2. Описание предметной области</strong></p>
+                <p>Как в тестовых, так и в "боевых" данных имеются записи об одной сущности: Account. Она описывает всю известную информацию о пользователе - его имя, контакты, интересы, выявленные симпатии к другим пользователям. Гарантируется корректность предоставляемых данных в соответствии с указанными далее типами и ограничениями.</p>
+                <p>В одной записи <code>Account</code> (Профиль) имеются следующие личные данные:
+                    </p><ul>
+                        <li><strong>id</strong> - уникальный внешний идентификатор пользователя. Устанавливается тестирующей системой и используется затем, для проверки ответов сервера. Тип - 32-разрядное целое число.</li>
+                        <li><strong>email</strong> - адрес электронной почты пользователя. Тип - unicode-строка длиной до 100 символов. Гарантируется уникальность.</li>
+                        <li><strong>fname и sname</strong> - имя и фамилия соответственно. Тип - unicode-строки длиной до 50 символов. Поля опциональны и могут отсутствовать в конкретной записи.</li>
+                        <li><strong>phone</strong> - номер мобильного телефона. Тип - unicode-строка длиной до 16 символов. Поле является опциональным, но для указанных значений гарантируется уникальность. Заполняется довольно редко.</li>
+                        <li><strong>sex</strong> - unicode-строка "m" означает мужской пол, а "f" - женский.</li>
+                        <li><strong>birth</strong> - дата рождения, записанная как число секунд от начала UNIX-эпохи по UTC (другими словами - это timestamp). Ограничено снизу 01.01.1950 и сверху 01.01.2005-ым.</li>
+                        <li><strong>country</strong> - страна проживания. Тип - unicode-строка длиной до 50 символов. Поле опционально.</li>
+                        <li><strong>city</strong> - город проживания. Тип - unicode-строка длиной до 50 символов. Поле опционально и указывается редко. Каждый город расположен в определённой стране.</li>
+                    </ul>
+                <p></p>
+                <p class="alert alert-warning"><strong>Особенность 3.</strong> Все данные сгенерированы случайным образом и не имеют отношения к реальным людям, контактам или местам, даже если случились совпадения. Код генератора данных не использует сторонних решений, кроме импортов модулей random, datetime, calendar и string из стандартной библиотеки Python.</p>
+                <p>Также в одной записи Account есть поля специфичные для системы поиска "второй половинки":
+                    </p><ul>
+                        <li><strong>joined</strong> - дата регистрации в системе. Тип - timestamp с ограничениями: снизу 01.01.2011, сверху 01.01.2018.</li>
+                        <li><strong>status</strong> - текущий статус пользователя в системе. Тип - одна строка из следующих вариантов: "свободны", "заняты", "всё сложно". Не обращайте внимание на странные окончания :)</li>
+                        <li><strong>interests</strong> - интересы пользователя в обычной жизни. Тип - массив unicode-строк, возможно пустой. Строки не превышают по длине 100 символов.</li>
+                        <li><strong>premium</strong> - начало и конец премиального периода в системе (когда пользователям очень хотелось найти "вторую половинку" и они делали денежный вклад). В json это поле представлено вложенным объектом с полями start и finish, где записаны timestamp-ы с нижней границей 01.01.2018.</li>
+                        <li><strong>likes</strong> - массив известных симпатий пользователя, возможно пустой. Все симпатии идут вразнобой и каждая представляет собой объект из следующих полей:
+                            <ul>
+                                <li><strong>id</strong> - идентификатор другого аккаунта, к которому симпатия. Аккаунт по id в исходных данных всегда существует. В данных может быть несколько лайков с одним и тем же id.</li>
+                                <li><strong>ts</strong> - время, то есть timestamp, когда симпатия была записана в систему.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                <p></p>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-9">
+                <p class="subheader"><strong id="api">3. Описание необходимого API</strong></p>
+                <p>API - это схемы http-запросов, которые должен обслуживать разработанный участником сервер. URL-ы строятся в соответствии с парадигмой REST. В угловых скобках указаны части URL, которые могут и будут меняться от запроса к запросу.</p>
+                <p>Во всех ответах от сервера учитываются заголовки Content-Type, Content-Length, Connection.</p>
+                <p class="alert alert-warning"><strong>Особенность 4.</strong> Все примеры в дальнейшем красиво и аккуратно отформатированы для более лёгкого восприятия. В ответах сервера форматирование не учитывается. Кириллица и спец. символы в URL кодируются python-функцией urlencode().</p>
+                <p><strong id="api-get"><i>Запросы выборки данных (GET):</i></strong>
+                    </p><ol>
+                        <li>
+                            <p>Получение списка пользователей: <strong>/accounts/filter/</strong></p>
+                            <p>Данный метод API планируется использовать для поиска пользователей по заранее известным или желаемым полям. К примеру, кому-то захотелось посмотреть всех людей определённого возраста и пола, кто живёт в определённом городе.</p>
+                            <p>В теле ответа ожидается структура <code>{"accounts": [ ... ]}</code> с пользователями, данные которых соответствуют указанным в GET-параметрах ограничениям. Для каждой подошедшей записи аккаунта не нужно передавать все известные о ней данные, а только поля id, email и те, что были использованы в запросе.</p>
+                            <p class="alert alert-danger"><strong>20.12.2018:</strong> в этом запросе теперь не нужно выводить данные по <strong>interests</strong> и <strong>likes</strong>. Так сделано, чтобы уменьшить кол-во данных после обстрела, которые хранятся на серверах.</p>
+                            <p>Пользователи в результате должны быть отсортированы по убыванию значений в поле id. Количество выбираемых записей ограничено обязательным GET-параметром limit.</p>
+                            <p>Остальные GET-параметры формируются как <code>&lt;поле&gt;_&lt;предикат&gt;</code>. У разных полей могут использоваться только определённые фильтрующие предикаты, которые перечислены в таблице ниже. В данном запросе действие нескольких параметров складывается, то есть сначала фильтрация по одному, затем фильтрация результата по второму и т. д.
+                                </p><table class="table table-striped">
+                                    <tbody><tr><th>#</th><th>Название поля</th><th>Возможные предикаты с расшифровкой</th></tr>
+                                    <tr><td>1</td><td>sex</td><td><code>eq</code> - соответствие конкретному полу - "m" или "f";</td></tr>
+                                    <tr><td>2</td><td>email</td><td><code>domain</code> - выбрать всех, чьи email-ы имеют указанный домен;<br><code>lt</code> - выбрать всех, чьи email-ы лексикографически раньше;<br><code>gt</code> - то же, но лексикографически позже;</td></tr>
+                                    <tr><td>3</td><td>status</td><td><code>eq</code> - соответствие конкретному статусу;<br><code>neq</code> - выбрать всех, чей статус не равен указанному;</td></tr>
+                                    <tr><td>4</td><td>fname</td><td><code>eq</code> - соответствие конкретному имени;<br><code>any</code> - соответствие любому имени из перечисленных через запятую;<br><code>null</code> - выбрать всех, у кого указано имя (если 0) или не указано (если 1);</td></tr>
+                                    <tr><td>5</td><td>sname</td><td><code>eq</code> - соответствие конкретной фамилии;<br><code>starts</code> - выбрать всех, чьи фамилии начинаются с переданного префикса;<br><code>null</code> - выбрать всех, у кого указана фамилия (если 0) или не указана (если 1);</td></tr>
+                                    <tr><td>6</td><td>phone</td><td><code>code</code> - выбрать всех, у кого в телефоне конкретный код (три цифры в скобках);<br><code>null</code> - аналогично остальным полям;</td></tr>
+                                    <tr><td>7</td><td>country</td><td><code>eq</code> - всех, кто живёт в конкретной стране;<br><code>null</code> - аналогично;</td></tr>
+                                    <tr><td>8</td><td>city</td><td><code>eq</code> - всех, кто живёт в конкретном городе;<br><code>any</code> - в любом из перечисленных через запятую городов;<br><code>null</code> - аналогично;</td></tr>
+                                    <tr><td>9</td><td>birth</td><td><code>lt</code> - выбрать всех, кто родился до указанной даты;<br><code>gt</code> - после указанной даты;<br><code>year</code> - кто родился в указанном году;</td></tr>
+                                    <tr><td>10</td><td>interests</td><td><code>contains</code> - выбрать всех, у кого есть все перечисленные интересы;<br><code>any</code> - выбрать всех, у кого есть любой из перечисленных интересов;</td></tr>
+                                    <tr><td>11</td><td>likes</td><td><code>contains</code> - выбрать всех, кто лайкал всех перечисленных пользователей<br>&nbsp;(в значении - перечисленные через запятые id);</td></tr>
+                                    <tr><td>12</td><td>premium</td><td><code>now</code> - все у кого есть премиум на текущую дату;<br><code>null</code> - аналогично остальным;</td></tr>
+                                </tbody></table>
+                            <p></p>
+                            <p>Конечно, мы не генерируем наборы этих параметров абсолютным рандомом. Разрешены только определённые сочетания и у каждого поля есть вероятность включения его в запрос. Сочетания и вероятности выбраны не просто так - попробуйте использовать эти знания в свою пользу.</p>
+                            <p>Пример запроса и корректного ответа на него:
+                                </p><pre><code class="hljs bash">GET: /accounts/filter/?status_neq=всё+сложно&amp;birth_lt=643972596&amp;country_eq=Индляндия&amp;<span class="hljs-built_in">limit</span>=5&amp;query_id=110</code></pre>
+                                <pre><code class="json hljs">{
+    <span class="hljs-attr">"accounts"</span>: [
+        {
+            <span class="hljs-attr">"email"</span>: <span class="hljs-string">"monnorakodehrenod@list.ru"</span>,
+            <span class="hljs-attr">"country"</span>: <span class="hljs-string">"Индляндия"</span>,
+            <span class="hljs-attr">"id"</span>: <span class="hljs-number">99270</span>,
+            <span class="hljs-attr">"status"</span>: <span class="hljs-string">"заняты"</span>,
+            <span class="hljs-attr">"birth"</span>: <span class="hljs-number">581863572</span>
+        },{
+            <span class="hljs-attr">"email"</span>: <span class="hljs-string">"erwirarhadmemeddifde@yahoo.com"</span>,
+            <span class="hljs-attr">"country"</span>: <span class="hljs-string">"Индляндия"</span>,
+            <span class="hljs-attr">"id"</span>: <span class="hljs-number">98881</span>,
+            <span class="hljs-attr">"status"</span>: <span class="hljs-string">"свободны"</span>,
+            <span class="hljs-attr">"birth"</span>: <span class="hljs-number">640015608</span>
+        },{
+            <span class="hljs-attr">"email"</span>: <span class="hljs-string">"rupewseor@rambler.ru"</span>,
+            <span class="hljs-attr">"country"</span>: <span class="hljs-string">"Индляндия"</span>,
+            <span class="hljs-attr">"id"</span>: <span class="hljs-number">98828</span>,
+            <span class="hljs-attr">"status"</span>: <span class="hljs-string">"заняты"</span>,
+            <span class="hljs-attr">"birth"</span>: <span class="hljs-number">604256977</span>
+        },{
+            <span class="hljs-attr">"email"</span>: <span class="hljs-string">"fiotnefaersohhev@inbox.ru"</span>,
+            <span class="hljs-attr">"country"</span>: <span class="hljs-string">"Индляндия"</span>,
+            <span class="hljs-attr">"id"</span>: <span class="hljs-number">98804</span>,
+            <span class="hljs-attr">"status"</span>: <span class="hljs-string">"свободны"</span>,
+            <span class="hljs-attr">"birth"</span>: <span class="hljs-number">596799123</span>
+        },{
+            <span class="hljs-attr">"email"</span>: <span class="hljs-string">"geslasereshedot@yahoo.com"</span>,
+            <span class="hljs-attr">"country"</span>: <span class="hljs-string">"Индляндия"</span>,
+            <span class="hljs-attr">"id"</span>: <span class="hljs-number">98718</span>,
+            <span class="hljs-attr">"status"</span>: <span class="hljs-string">"свободны"</span>,
+            <span class="hljs-attr">"birth"</span>: <span class="hljs-number">640919302</span>
+        }
+    ]
+}</code></pre>
+                            <p></p>
+                            <p class="alert alert-warning"><strong>Особенность 5.</strong> В случае неизвестного поля или неразрешённого предиката, в ответе ожидается код 400 с пустым телом. Во всех остальных случаях ожидается ответ 200, даже если ни одного пользователя не нашлось.</p>
+                            <p class="alert alert-warning"><strong>Особенность 6.</strong> Во всех запросах API присутствует технический GET-параметр <code>query_id</code>. Решение должно просто игнорировать этот параметр, так как он не требует никаких действий.</p>
+                        </li>
+                        <li>
+                            <p>Разбиение пользователей по группам: <strong>/accounts/group/</strong></p>
+                            <p>Данный метод API планируется использовать для создания отчётов о работе системы. Поля, по которым производится группировка переданы в GET-параметре keys через запятую. Они не так многочисленны, как в запросе на фильтрацию пользователей. Полей для группировки всего пять - <code>sex, status, interests, country, city</code>.</p>
+                            <p>Перед тем как выполнять группировку необходимо выполнить выборку как в предыдущем запросе, но по конкретным значениям, а не по предикатам. К примеру, если в GET-параметрах указано <code>country=Алания</code>, значит группировка выполняется только по пользователям из этой страны. Выборка может идти по любому полю, но значение в нём будет только одно (для likes будет только один id, для interests только одна строка, для birth и joined - будет одно число - год).</p>
+                            <p>В теле ответа ожидается структура <code>{"groups": [ ... ]}</code> со списком групп. В каждой группе обязательно должны быть ключи, по которым производилась группировка с соответствующими конкретными значениями. Для каждой выявленной группы нужно подсчитать сколько пользователей в неё попало и записать в результате по ключу <code>count</code>. То есть, агрегирующая функция для этого запроса только одна и это подсчёт.</p>
+                            <p>В результате нужно вернуть не все выявленные группы, а только N самых крупных или N самых мелких. Число N задаётся GET-параметром <code>limit=N</code>, а возвращать ли сначала крупные или сначала мелкие - GET-параметром <code>order=-1</code> или <code>order=1</code> соответственно. В ответе могут получиться группы с одинаковым count и это может создать проблемы на этапе валидации ответов. Пожалуйста, сортируйте такие группы между собой по значениям других полей в порядке, заданном order.</p>
+                            <p>Обратите внимание, что N не превышает 50. Возможно этот факт поможет с оптимизацией :)</p>
+                            <p>Пример запроса и корректного ответа на него:
+                                </p><pre><code class="hljs bash">GET: /accounts/group/?birth=1998&amp;<span class="hljs-built_in">limit</span>=4&amp;order=-1&amp;keys=country</code></pre>
+                                <p>(вернуть 4 страны, где больше всего пользователей с годом рождения 1998)</p>
+                                <pre><code class="json hljs">{<span class="hljs-attr">"groups"</span>: [
+    {<span class="hljs-attr">"country"</span>: <span class="hljs-string">"Малатрис"</span>, <span class="hljs-attr">"count"</span>: <span class="hljs-number">8745</span>},
+    {<span class="hljs-attr">"country"</span>: <span class="hljs-string">"Алания"</span>, <span class="hljs-attr">"count"</span>: <span class="hljs-number">4390</span>},
+    {<span class="hljs-attr">"country"</span>: <span class="hljs-string">"Финляндия"</span>, <span class="hljs-attr">"count"</span>: <span class="hljs-number">2100</span>},
+    {<span class="hljs-attr">"country"</span>: <span class="hljs-string">"Гератрис"</span>, <span class="hljs-attr">"count"</span>: <span class="hljs-number">547</span>}
+]}</code></pre>
+                            <p></p>
+                            <p class="alert alert-warning"><strong>Особенность 7.</strong> При появлении в запросе неожиданных полей группировки или неизвестных GET-параметров в ответе ожидается код 400 с пустым телом ответа.</p>
+                        </li>
+                        <li>
+                            <p>Рекомендации по совместимости: <strong>/accounts/&lt;id&gt;/recommend/</strong></p>
+                            <p>Данный запрос используется для поиска "второй половинки" по указанным пользовательским данным. В запросе передаётся id пользователя, для которого ищутся те, кто лучше всего совместимы по статусу, возрасту и интересам. Решение должно проверять совместимость только с противоположным полом (мы не против секс-меньшинств и осуждаем дискриминацию, просто так получилось :) ). Если в GET-запросе передана страна или город с ключами country и city соответственно, то нужно искать только среди живущих в указанном месте.</p>
+                            <p>В ответе ожидается код 200 и структура <code>{"accounts": [ ... ]}</code> либо код 404 , если пользователя с искомым id не обнаружено в хранимых данных. По ключу "accounts" должны быть N пользователей, сортированных по убыванию их совместимости с обозначенным id. Число N задаётся в запросе GET-параметром limit и не бывает больше 20.</p>
+                            <p>Совместимость определяется как функция от двух пользователей: <code>compatibility&nbsp;=&nbsp;f&nbsp;(me,&nbsp;somebody)</code>. Функция строится самими участниками, но так, чтобы соответствовать следующим правилам:</p>
+                            <p>
+                                </p><ol>
+                                    <li>Наибольший вклад в совместимость даёт наличие статуса "свободны". Те кто "всё сложно" идут во вторую очередь, а "занятые" в третью и последнюю (очень вероятно их вообще не будет в ответе).</li>
+                                    <li>Далее идёт совместимость по интересам. Чем больше совпавших интересов у пользователей, тем более они совместимы.</li>
+                                    <li>Третий по значению параметр - различие в возрасте. Чем больше разница, тем меньше совместимость.</li>
+                                    <li>Те, у кого активирован премиум-аккаунт, пропихиваются в самый верх, вперёд обычных пользователей. Если таких несколько, то они сортируются по совместимости между собой.</li>
+                                    <li>Если общих интересов нет, то стоит считать пользователей абсолютно несовместимыми с <code>compatibility = 0</code>.</li>
+                                </ol>
+                            <p></p>
+                            <p>В итоговом списке необходимо выводить только следующие поля: <code>id, email, status, fname, sname, birth, premium, interests</code>. Если в ответе оказались одинаково совместимые пользователи (одни и те же status, interests, birth), то выводить их по возрастанию <code>id</code></p>
+                            <p class="alert alert-danger"><strong>20.12.2018:</strong> в этом запросе теперь не нужно выводить данные по <strong>interests</strong>. Сделано по той же причине, что и в запросах /filter/.</p>
+                            <p>Пример запроса и корректного ответа на него:
+                                </p><pre><code class="hljs bash">GET: /accounts/89528/recommend/?country=Индция&amp;<span class="hljs-built_in">limit</span>=8&amp;query_id=151</code></pre>
+                                <p>(вернуть 8 самых совместимых с пользователем id=89528 в стране "Индция")</p>
+                            <pre><code class="json hljs">{
+    <span class="hljs-attr">"accounts"</span>:  [
+        {
+            <span class="hljs-attr">"email"</span>: <span class="hljs-string">"heernetletem@me.com"</span>,
+            <span class="hljs-attr">"premium"</span>: {<span class="hljs-attr">"finish"</span>: <span class="hljs-number">1546029018.0</span>, <span class="hljs-attr">"start"</span>: <span class="hljs-number">1530304218</span>},
+            <span class="hljs-attr">"status"</span>: <span class="hljs-string">"свободны"</span>,
+            <span class="hljs-attr">"sname"</span>: <span class="hljs-string">"Данашевен"</span>,
+            <span class="hljs-attr">"fname"</span>: <span class="hljs-string">"Анатолий"</span>,
+            <span class="hljs-attr">"id"</span>: <span class="hljs-number">35473</span>,
+            <span class="hljs-attr">"birth"</span>: <span class="hljs-number">926357446</span>
+        },{
+            <span class="hljs-attr">"email"</span>: <span class="hljs-string">"teicfiwidadsuna@inbox.com"</span>,
+            <span class="hljs-attr">"premium"</span>: {<span class="hljs-attr">"finish"</span>: <span class="hljs-number">1565741391.0</span>, <span class="hljs-attr">"start"</span>: <span class="hljs-number">1534205391</span>},
+            <span class="hljs-attr">"status"</span>: <span class="hljs-string">"свободны"</span>,
+            <span class="hljs-attr">"id"</span>: <span class="hljs-number">23067</span>,
+            <span class="hljs-attr">"birth"</span>: <span class="hljs-number">801100962</span>
+        },{
+            <span class="hljs-attr">"email"</span>: <span class="hljs-string">"nonihiwwahigtegodyn@inbox.com"</span>,
+            <span class="hljs-attr">"premium"</span>: {<span class="hljs-attr">"finish"</span>: <span class="hljs-number">1557069862.0</span>, <span class="hljs-attr">"start"</span>: <span class="hljs-number">1525533862</span>},
+            <span class="hljs-attr">"status"</span>: <span class="hljs-string">"свободны"</span>,
+            <span class="hljs-attr">"sname"</span>: <span class="hljs-string">"Стаметаный"</span>,
+            <span class="hljs-attr">"fname"</span>: <span class="hljs-string">"Виталий"</span>,
+            <span class="hljs-attr">"id"</span>: <span class="hljs-number">90883</span>,
+            <span class="hljs-attr">"birth"</span>: <span class="hljs-number">773847481</span>
+        }
+    ]
+}</code></pre>
+                            <p></p>
+                            <p class="alert alert-warning"><strong>Особенность 8.</strong> Если в хранимых данных не существует пользователя с переданным id, то ожидается код 404 с пустым телом ответа.</p>
+                        </li>
+                        <li>
+                            <p>Подбор по похожим симпатиям: <strong>/accounts/&lt;id&gt;/suggest/</strong></p>
+                            <p>Этот тип запросов похож на предыдущий тем, что он тоже про поиск "вторых половинок". Аналогично пересылается id пользователя, для которого мы ищем вторую половинку и аналогично используется GET-параметер limit. Различия в реализации. Теперь мы ищем, кого лайкают пользователи того же пола с похожими "симпатиями" и предлагаем тех, кого они недавно лайкали сами. В случае, если в запросе передан GET-параметр country или city, то искать "похожие симпатии" нужно только в определённой локации.</p>
+                            <p>Похожесть симпатий определим как функцию: <code>similarity = f (me, account)</code>, которая вычисляется однозначно как сумма из дробей <code>1 / abs(my_like['ts'] - like['ts'])</code>, где my_like и like - это симпатии к одному и тому же пользователю. Для дроби, где <code>my_like['ts'] == like['ts']</code>, заменяем дробь на <code>1</code>. Если общих лайков нет, то стоит считать пользователей абсолютно непохожими с <code>similarity = 0</code>. Если у одного аккаунта есть несколько лайков на одного и того же пользователя с разными датами, то в формуле используется среднее арифметическое их дат.</p>
+                            <p>В ответе возвращается список тех, кого ещё не лайкал пользователь с указанным id, но кого лайкали пользователи с самыми похожими симпатиями. Сортировка по убыванию похожести, а между лайками одного такого пользователя - по убыванию id лайка.</p>
+                            <p>Пример запроса и корректного ответа на него:
+                                </p><pre><code class="hljs bash">GET: /accounts/51774/suggest/?country=Испляндия&amp;<span class="hljs-built_in">limit</span>=6&amp;query_id=152</code></pre>
+                            <pre><code class="json hljs">{
+    <span class="hljs-attr">"accounts"</span>: [
+        {
+             <span class="hljs-attr">"email"</span>: <span class="hljs-string">"itwonudiahsu@yandex.ru"</span>,
+             <span class="hljs-attr">"id"</span>: <span class="hljs-number">94155</span>,
+             <span class="hljs-attr">"status"</span>: <span class="hljs-string">"заняты"</span>,
+             <span class="hljs-attr">"fname"</span>: <span class="hljs-string">"Никита"</span>
+        },{
+             <span class="hljs-attr">"email"</span>: <span class="hljs-string">"neeficyreddohypot@ymail.com"</span>,
+             <span class="hljs-attr">"id"</span>: <span class="hljs-number">93449</span>,
+             <span class="hljs-attr">"status"</span>: <span class="hljs-string">"свободны"</span>,
+             <span class="hljs-attr">"fname"</span>: <span class="hljs-string">"Иван"</span>
+        },{
+             <span class="hljs-attr">"email"</span>: <span class="hljs-string">"sotheralnes@inbox.ru"</span>,
+             <span class="hljs-attr">"id"</span>: <span class="hljs-number">89997</span>,
+             <span class="hljs-attr">"sname"</span>: <span class="hljs-string">"Лукетатин"</span>,
+             <span class="hljs-attr">"fname"</span>: <span class="hljs-string">"Руслан"</span>,
+             <span class="hljs-attr">"status"</span>: <span class="hljs-string">"заняты"</span>
+        },{
+             <span class="hljs-attr">"email"</span>: <span class="hljs-string">"kihatneselritunuwryr@ya.ru"</span>,
+             <span class="hljs-attr">"id"</span>: <span class="hljs-number">88119</span>,
+             <span class="hljs-attr">"sname"</span>: <span class="hljs-string">"Лукушутин"</span>,
+             <span class="hljs-attr">"fname"</span>: <span class="hljs-string">"Николай"</span>,
+             <span class="hljs-attr">"status"</span>: <span class="hljs-string">"свободны"</span>
+        },{
+             <span class="hljs-attr">"email"</span>: <span class="hljs-string">"otnideonfomedec@icloud.com"</span>,
+             <span class="hljs-attr">"id"</span>: <span class="hljs-number">87873</span>,
+             <span class="hljs-attr">"status"</span>: <span class="hljs-string">"свободны"</span>,
+             <span class="hljs-attr">"sname"</span>: <span class="hljs-string">"Фаетавен"</span>,
+             <span class="hljs-attr">"fname"</span>: <span class="hljs-string">"Сидор"</span>
+        },{
+             <span class="hljs-attr">"email"</span>: <span class="hljs-string">"poodreantasis@me.com"</span>,
+             <span class="hljs-attr">"id"</span>: <span class="hljs-number">85461</span>,
+             <span class="hljs-attr">"sname"</span>: <span class="hljs-string">"Даныкалан"</span>,
+             <span class="hljs-attr">"fname"</span>: <span class="hljs-string">"Вадим"</span>,
+             <span class="hljs-attr">"status"</span>: <span class="hljs-string">"заняты"</span>
+        },
+    ]
+}</code></pre>
+                            <p></p>
+                            <p class="alert alert-warning"><strong>Особенность 9.</strong> Если в хранимых данных не существует пользователя с переданным id, то ожидается код 404 с пустым телом ответа.</p>
+                        </li>
+                    </ol>
+                <p></p>
+                <p><strong id="api-post"><i>Запросы изменения данных (POST):</i></strong>
+                    </p><ol>
+                        <li>
+                            <p>Добавление нового пользователя: <strong>/accounts/new/</strong></p>
+                            <p>Данный запрос просто добавляет новую запись о пользователе в хранимые данные. Новые данные записаны в теле запроса в формате json. Предполагается, что решение само проконтролирует уникальность полей и типы данных.</p>
+                            <p>В ответе ожидается код 201 с пустым json-ом в теле ответа (<code>{}</code>), если создание нового пользователя прошло успешно. В случае некорректных типов данных или неизвестных ключей нужно вернуть код 400 с пустым телом.</p>
+                            <p>Пример запроса и корректного ответа на него:</p>
+                            <pre><code class="json hljs">POST: /accounts/new/
+...
+{
+    <span class="hljs-attr">"sname"</span>: <span class="hljs-string">"Хопетачан"</span>,
+    <span class="hljs-attr">"email"</span>: <span class="hljs-string">"orhograanenor@yahoo.com"</span>,
+    <span class="hljs-attr">"country"</span>: <span class="hljs-string">"Голция"</span>,
+    <span class="hljs-attr">"interests"</span>: [],
+    <span class="hljs-attr">"birth"</span>: <span class="hljs-number">736598811</span>,
+    <span class="hljs-attr">"id"</span>: <span class="hljs-number">50000</span>,
+    <span class="hljs-attr">"sex"</span>: <span class="hljs-string">"f"</span>,
+    <span class="hljs-attr">"likes"</span>: [
+        {<span class="hljs-attr">"ts"</span>: <span class="hljs-number">1475619112</span>, <span class="hljs-attr">"id"</span>: <span class="hljs-number">38753</span>},
+        {<span class="hljs-attr">"ts"</span>: <span class="hljs-number">1464366718</span>, <span class="hljs-attr">"id"</span>: <span class="hljs-number">14893</span>},
+        {<span class="hljs-attr">"ts"</span>: <span class="hljs-number">1510257477</span>, <span class="hljs-attr">"id"</span>: <span class="hljs-number">37967</span>},
+        {<span class="hljs-attr">"ts"</span>: <span class="hljs-number">1431722263</span>, <span class="hljs-attr">"id"</span>: <span class="hljs-number">38933</span>}
+    ],
+    <span class="hljs-attr">"premium"</span>: {<span class="hljs-attr">"start"</span>: <span class="hljs-number">1519661251</span>, <span class="hljs-attr">"finish"</span>: <span class="hljs-number">1522253251</span>},
+    <span class="hljs-attr">"status"</span>: <span class="hljs-string">"всё сложно"</span>,
+    <span class="hljs-attr">"fname"</span>: <span class="hljs-string">"Полина"</span>,
+    <span class="hljs-attr">"joined"</span>: <span class="hljs-number">1466035200</span>
+}</code></pre>
+                            <pre><code class="json hljs">{}</code></pre>
+                            <p class="alert alert-warning"><strong>Особенность 10.</strong> В случае некорректных типов данных, наличия неизвестных ключей или нарушения уникальности нужно вернуть код 400 с пустым телом.</p>
+                        </li>
+                        <li>
+                            <p>Обновление данных пользователя: <strong>/accounts/&lt;id&gt;/</strong></p>
+                            <p>Данный запрос обновляет данные одного единственного пользователя в хранимых данных. В теле запроса в формате json записаны только обновляемые поля и их значения. Поле id никогда не содержится среди обновляемых полей и посылается в URL запроса. Предполагается, что решение само проконтролирует уникальность обновляемых полей и типы данных.</p>
+                            <p>В ответе ожидается код 202 с пустым json-ом в теле ответа (<code>{}</code>), если обновление прошло успешно. Если запись с указанным id не существует в имеющихся данных, то ожидается код 404 с пустым телом. Если запись существует, но в теле запроса переданы неизвестные поля или типы значений неверны, то ожидается код 400.</p>
+                            <p>Пример запроса и корректного ответа на него:</p>
+                            <pre><code class="json hljs">POST: /accounts/<span class="hljs-number">46133</span>/?query_id=<span class="hljs-number">308</span>
+...
+{
+    <span class="hljs-attr">"birth"</span>: <span class="hljs-number">664945551</span>,
+    <span class="hljs-attr">"city"</span>: <span class="hljs-string">"Санктобирск"</span>,
+    <span class="hljs-attr">"email"</span>: <span class="hljs-string">"fywdolpa@yandex.ru"</span>,
+    <span class="hljs-attr">"status"</span>: <span class="hljs-string">"заняты"</span>,
+    <span class="hljs-attr">"country"</span>: <span class="hljs-string">"Алмаль"</span>
+}</code></pre>
+                            <pre><code class="json hljs">{}</code></pre>
+                            <p class="alert alert-warning"><strong>Особенность 11.</strong> Аналогично добавлению нового пользователя, в случае некорректных типов данных, наличия неизвестных ключей или нарушения уникальности нужно вернуть код 400 с пустым телом.</p>
+                        </li>
+                        <li>
+                            <p>Добавление новых лайков: <strong>/accounts/likes/</strong></p>
+                            <p>Данный запрос добавляет множество новых лайков к множеству разных пользователей. Примерно так работают сервисы знакомств в жизни: клиентское приложение рекомендует подходящих кандидатов, а пользователи ставят отметку симпатии (вдохновлялись badoo). Никаких ограничений по уникальности в лайках нет.</p>
+                            <p>В теле запроса передаётся структура <code>{"likes": [ ... ]}</code>, где в likes лежит массив объектов с такими ключами:
+                                </p><ul>
+                                    <li><strong>liker</strong> - id того, кто выставил отметку симпатии;</li>
+                                    <li><strong>likee</strong> - id того, кто симпатичен;</li>
+                                    <li><strong>ts</strong> - время в формате timestamp, когда отметка была выставлена;</li>
+                                </ul>
+                            <p></p>
+                            <p>В ответе ожидается код 202 с пустым json-ом в теле ответа (<code>{}</code>), если обновление прошло успешно. Если в теле запроса переданы неизвестные поля или типы значений неверны, то ожидается код 400.</p>
+                            <p>Пример запроса и корректного ответа на него:</p>
+                            <pre><code class="json hljs">POST: /accounts/likes/?query_id=<span class="hljs-number">316</span>
+...
+{<span class="hljs-attr">"likes"</span>:[
+    {<span class="hljs-attr">"likee"</span>: <span class="hljs-number">3929</span>, <span class="hljs-attr">"ts"</span>: <span class="hljs-number">1464869768</span>, <span class="hljs-attr">"liker"</span>: <span class="hljs-number">25486</span>},
+    {<span class="hljs-attr">"likee"</span>: <span class="hljs-number">13239</span>, <span class="hljs-attr">"ts"</span>: <span class="hljs-number">1431103000</span>, <span class="hljs-attr">"liker"</span>: <span class="hljs-number">26727</span>},
+    {<span class="hljs-attr">"likee"</span>: <span class="hljs-number">2407</span>, <span class="hljs-attr">"ts"</span>: <span class="hljs-number">1439604510</span>, <span class="hljs-attr">"liker"</span>: <span class="hljs-number">6403</span>},
+    {<span class="hljs-attr">"likee"</span>: <span class="hljs-number">26677</span>, <span class="hljs-attr">"ts"</span>: <span class="hljs-number">1454719940</span>, <span class="hljs-attr">"liker"</span>: <span class="hljs-number">22248</span>},
+    {<span class="hljs-attr">"likee"</span>: <span class="hljs-number">22411</span>, <span class="hljs-attr">"ts"</span>: <span class="hljs-number">1481309376</span>, <span class="hljs-attr">"liker"</span>: <span class="hljs-number">32820</span>},
+    {<span class="hljs-attr">"likee"</span>: <span class="hljs-number">9747</span>, <span class="hljs-attr">"ts"</span>: <span class="hljs-number">1431850118</span>, <span class="hljs-attr">"liker"</span>: <span class="hljs-number">43794</span>},
+    {<span class="hljs-attr">"likee"</span>: <span class="hljs-number">43575</span>, <span class="hljs-attr">"ts"</span>: <span class="hljs-number">1499496173</span>, <span class="hljs-attr">"liker"</span>: <span class="hljs-number">16134</span>},
+    {<span class="hljs-attr">"likee"</span>: <span class="hljs-number">29725</span>, <span class="hljs-attr">"ts"</span>: <span class="hljs-number">1479087147</span>, <span class="hljs-attr">"liker"</span>: <span class="hljs-number">22248</span>}
+]}</code></pre>
+                            <pre><code class="json hljs">{}</code></pre>
+                            <p class="alert alert-warning"><strong>Особенность 12.</strong> Если в теле запроса переданы неизвестные поля или типы значений неверны, нужно вернуть код 400 с пустым телом.</p>
+                        </li>
+                    </ol>
+                <p></p>
+                <p class="alert alert-warning"><strong>Особенность 13.</strong> Для всех URL, не указанных в приведённом API ожидается ответ с кодом 404 и пустым телом.</p>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-9">
+                <p class="alert alert-success">Теперь, дорогой участник, когда ты ознакомился с правилами проведения Highload Cup 2018 и постановкой задачи, наступила пора пробовать и побеждать!<br>Мы - Лаборатория Технопарка и Mail.ru Group, от всей души <strong>желаем тебе удачи!</strong></p>
+            </div>
+        </div>
+        <br>
+    </div>
+
+</body></html>
