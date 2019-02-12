@@ -2,7 +2,7 @@
 
 Мое решение для Highload Cup 2018.
 
-* Техническое задание: https://github.com/covrom/highloadcup2018
+* Техническое задание: https://highloadcup.ru/media/condition/accounts_rules.html
 
 В финале https://highloadcup.ru/ru/rating/ мое решение занимает 28 место с ~410 сек. штрафа и потреблением памяти 1,6-1,7 Гб.
 
