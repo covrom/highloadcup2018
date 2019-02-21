@@ -108,13 +108,16 @@ func TestSearchSmall(t *testing.T) {
 
 	for want, q := range ints {
 		if idx := AsmSearchInts(ints, q); idx != uint32(want) {
-			t.Errorf("StdSearchInts(ints, %v)=%v, want %v", q, idx, want)
+			t.Errorf("AsmSearchInts(ints, %v)=%v, want %v", q, idx, want)
 		}
 		if idx := BinSearchInts(ints, q); idx != uint32(want) {
-			t.Errorf("StdSearchInts(ints, %v)=%v, want %v", q, idx, want)
+			t.Errorf("BinSearchInts(ints, %v)=%v, want %v", q, idx, want)
+		}
+		if idx := LineSearchInts(ints, q); idx != uint32(want) {
+			t.Errorf("LineSearchInts(ints, %v)=%v, want %v", q, idx, want)
 		}
 		if idx := BinApproxSearchInts(ints, q); idx != uint32(want) {
-			t.Errorf("StdSearchInts(ints, %v)=%v, want %v", q, idx, want)
+			t.Errorf("BinApproxSearchInts(ints, %v)=%v, want %v", q, idx, want)
 		}
 		if idx := StdSearchInts(ints, q); idx != uint32(want) {
 			t.Errorf("StdSearchInts(ints, %v)=%v, want %v", q, idx, want)
@@ -131,13 +134,16 @@ func TestSearchSmall(t *testing.T) {
 		want := sort.Search(len(ints), func(ii int) bool { return ints[ii] >= q })
 
 		if idx := AsmSearchInts(ints, q); idx != uint32(want) {
-			t.Errorf("StdSearchInts(ints, %v)=%v, want %v", q, idx, want)
+			t.Errorf("AsmSearchInts(ints, %v)=%v, want %v", q, idx, want)
 		}
 		if idx := BinSearchInts(ints, q); idx != uint32(want) {
-			t.Errorf("StdSearchInts(ints, %v)=%v, want %v", q, idx, want)
+			t.Errorf("BinSearchInts(ints, %v)=%v, want %v", q, idx, want)
+		}
+		if idx := LineSearchInts(ints, q); idx != uint32(want) {
+			t.Errorf("LineSearchInts(ints, %v)=%v, want %v", q, idx, want)
 		}
 		if idx := BinApproxSearchInts(ints, q); idx != uint32(want) {
-			t.Errorf("StdSearchInts(ints, %v)=%v, want %v", q, idx, want)
+			t.Errorf("BinApproxSearchInts(ints, %v)=%v, want %v", q, idx, want)
 		}
 		if idx := StdSearchInts(ints, q); idx != uint32(want) {
 			t.Errorf("StdSearchInts(ints, %v)=%v, want %v", q, idx, want)
