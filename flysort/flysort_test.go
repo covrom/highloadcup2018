@@ -64,6 +64,10 @@ func BenchmarkInserts(b *testing.B) {
 	heapLimit = 10000
 	b.Run("SortInsert10000", BenchSortInsert)
 	b.Run("LineInsert10000", BenchLineInsert)
+
+	heapLimit = 100000
+	b.Run("SortInsert100000", BenchSortInsert)
+	b.Run("LineInsert100000", BenchLineInsert)
 }
 
 func TestAll(t *testing.T) {
