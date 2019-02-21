@@ -110,6 +110,9 @@ func TestAll(t *testing.T) {
 		}
 	}
 
+	t.Log(h2)
+	t.Log(h3)
+	
 	for i := range *h3 {
 
 		v1 := PopHeap(h1)
