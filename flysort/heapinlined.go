@@ -16,12 +16,10 @@ func InitHeap(h *heapInts) {
 
 func PushHeap(h *heapInts, x int) {
 	n := len(*h)
-	if n < heapLimit {
-		*h = append(*h, x)
-		upHeap(h, n)
-	} else {
-		(*h)[0] = x
-		downHeap(h, 0, n)
+	*h = append(*h, x)
+	upHeap(h, n)
+	if len(*h) > heapLimit {
+		*h = (*h)[:heapLimit]
 	}
 }
 

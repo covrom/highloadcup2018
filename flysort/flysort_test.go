@@ -10,7 +10,7 @@ var Ints heapInts
 func fillInts() {
 	rand.Seed(0)
 
-	Ints = make(heapInts, heapLimit*10000)
+	Ints = make(heapInts, 1000000)
 
 	for i := 0; i < heapLimit; i++ {
 		Ints[i] = int(rand.Int() % heapLimit)
@@ -41,7 +41,7 @@ func BenchSortInsert(b *testing.B) {
 	h := make(heapInts, 0, heapLimit)
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		SortInsert(&h, Ints[elt])
+		h = SortInsert(h, Ints[elt])
 		elt++
 		if elt >= len(Ints) {
 			elt = 0
@@ -57,7 +57,7 @@ func BenchLineInsert(b *testing.B) {
 	h := make(heapInts, 0, heapLimit)
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		LineInsert(&h, Ints[elt])
+		h = LineInsert(h, Ints[elt])
 		elt++
 		if elt >= len(Ints) {
 			elt = 0
@@ -93,31 +93,36 @@ func TestAll(t *testing.T) {
 		fillInts()
 	}
 
-	heapLimit = 100
+	heapLimit = 10
 
-	h1 := new(heapInts)
-	h2 := new(heapInts)
-	h3 := new(heapInts)
+	h1 := make(heapInts, 0, heapLimit)
+	h2 := make(heapInts, 0, heapLimit)
+	h3 := make(heapInts, 0, heapLimit)
 
 	elt := 0
 	for i := 0; i < 100000; i++ {
-		PushHeap(h1, Ints[elt])
-		SortInsert(h2, Ints[elt])
-		LineInsert(h3, Ints[elt])
+		v := Ints[elt]
+		PushHeap(&h1, v)
+		h2 = SortInsert(h2, v)
+		h3 = LineInsert(h3, v)
 		elt++
 		if elt >= len(Ints) {
 			elt = 0
 		}
 	}
 
+	t.Log(len(h1))
+	t.Log(h1)
+	t.Log(len(h2))
 	t.Log(h2)
+	t.Log(len(h3))
 	t.Log(h3)
-	
-	for i := range *h3 {
 
-		v1 := PopHeap(h1)
-		v2 := (*h2)[i]
-		v3 := (*h3)[i]
+	for i := range h3 {
+
+		v1 := PopHeap(&h1)
+		v2 := h2[i]
+		v3 := h3[i]
 
 		if v1 != v2 || v2 != v3 {
 			t.Errorf("idx=%v, v1=%v, v2=%v, v3=%v", i, v1, v2, v3)
