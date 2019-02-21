@@ -18,9 +18,6 @@ func PushHeap(h *heapInts, x int) {
 	n := len(*h)
 	*h = append(*h, x)
 	upHeap(h, n)
-	if len(*h) > heapLimit {
-		*h = (*h)[:heapLimit]
-	}
 }
 
 func PopHeap(h *heapInts) int {
