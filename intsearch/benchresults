@@ -2,45 +2,53 @@ goos: linux
 goarch: amd64
 pkg: github.com/covrom/highloadcup2018/intsearch
 
-BenchmarkStd100-4           	50000000	        37.7 ns/op
-BenchmarkStd200-4           	30000000	        47.3 ns/op
-BenchmarkStd500-4           	20000000	        67.8 ns/op
-BenchmarkStd1000-4          	20000000	        80.9 ns/op
-BenchmarkStd10000-4         	20000000	        89.2 ns/op
-BenchmarkStd1e5-4           	20000000	        99.8 ns/op
-BenchmarkStd1e6-4           	20000000	       130 ns/op
+BenchmarkStd100-12            	50000000	        36.3 ns/op
+BenchmarkStd200-12            	30000000	        41.8 ns/op
+BenchmarkStd500-12            	30000000	        52.8 ns/op
+BenchmarkStd1000-12           	30000000	        58.0 ns/op
+BenchmarkStd10000-12          	20000000	        75.2 ns/op
+BenchmarkStd1e5-12            	20000000	        83.8 ns/op
+BenchmarkStd1e6-12            	20000000	        91.8 ns/op
 
-BenchmarkInterp100-4        	50000000	        22.9 ns/op
-BenchmarkInterp200-4        	50000000	        32.8 ns/op
-BenchmarkInterp500-4        	50000000	        37.1 ns/op
-BenchmarkInterp1000-4       	30000000	        47.6 ns/op
-BenchmarkInterp10000-4      	30000000	        63.2 ns/op
-BenchmarkInterp1e5-4        	20000000	        64.0 ns/op
-BenchmarkInterp1e6-4        	20000000	        79.3 ns/op
+BenchmarkInterp100-12         	50000000	        21.4 ns/op
+BenchmarkInterp200-12         	50000000	        33.4 ns/op
+BenchmarkInterp500-12         	50000000	        35.0 ns/op
+BenchmarkInterp1000-12        	50000000	        37.8 ns/op
+BenchmarkInterp10000-12       	30000000	        45.4 ns/op
+BenchmarkInterp1e5-12         	30000000	        48.8 ns/op
+BenchmarkInterp1e6-12         	20000000	        62.1 ns/op
 
-BenchmarkAsm100-4           	100000000	        10.7 ns/op
-BenchmarkAsm200-4           	100000000	        11.9 ns/op
-BenchmarkAsm500-4           	50000000	        28.7 ns/op
-BenchmarkAsm1000-4          	30000000	        40.2 ns/op
-BenchmarkAsm10000-4         	30000000	        51.5 ns/op
-BenchmarkAsm1e5-4           	30000000	        51.2 ns/op
-BenchmarkAsm1e6-4           	30000000	        51.9 ns/op
+BenchmarkAsm100-12            	100000000	        14.5 ns/op
+BenchmarkAsm200-12            	100000000	        16.5 ns/op
+BenchmarkAsm500-12            	100000000	        19.7 ns/op
+BenchmarkAsm1000-12           	100000000	        23.1 ns/op
+BenchmarkAsm10000-12          	50000000	        33.2 ns/op
+BenchmarkAsm1e5-12            	50000000	        36.6 ns/op
+BenchmarkAsm1e6-12            	50000000	        37.0 ns/op
 
-BenchmarkBin100-4           	100000000	        13.9 ns/op
-BenchmarkBin200-4           	100000000	        15.4 ns/op
-BenchmarkBin500-4           	50000000	        26.9 ns/op
-BenchmarkBin1000-4          	50000000	        35.2 ns/op
-BenchmarkBin10000-4         	30000000	        49.3 ns/op
-BenchmarkBin1e5-4           	30000000	        48.1 ns/op
-BenchmarkBin1e6-4           	30000000	        50.7 ns/op
+BenchmarkBin100-12            	100000000	        15.0 ns/op
+BenchmarkBin200-12            	100000000	        16.9 ns/op
+BenchmarkBin500-12            	100000000	        20.9 ns/op
+BenchmarkBin1000-12           	50000000	        24.7 ns/op
+BenchmarkBin10000-12          	50000000	        35.7 ns/op
+BenchmarkBin1e5-12            	50000000	        36.8 ns/op
+BenchmarkBin1e6-12            	50000000	        37.9 ns/op
 
-BenchmarkBinApprox100-4     	100000000	        18.6 ns/op
-BenchmarkBinApprox200-4     	100000000	        19.5 ns/op
-BenchmarkBinApprox500-4     	50000000	        36.2 ns/op
-BenchmarkBinApprox1000-4    	50000000	        38.0 ns/op
-BenchmarkBinApprox10000-4   	30000000	        46.4 ns/op
-BenchmarkBinApprox1e5-4     	30000000	        49.7 ns/op
-BenchmarkBinApprox1e6-4     	30000000	        55.7 ns/op
+BenchmarkBinApprox100-12      	50000000	        25.3 ns/op
+BenchmarkBinApprox200-12      	50000000	        27.3 ns/op
+BenchmarkBinApprox500-12      	50000000	        31.1 ns/op
+BenchmarkBinApprox1000-12     	50000000	        32.4 ns/op
+BenchmarkBinApprox10000-12    	50000000	        35.2 ns/op
+BenchmarkBinApprox1e5-12      	50000000	        37.9 ns/op
+BenchmarkBinApprox1e6-12      	30000000	        42.0 ns/op
+
+BenchmarkLine100-12           	30000000	        47.0 ns/op
+BenchmarkLine200-12           	20000000	        73.1 ns/op
+BenchmarkLine500-12           	10000000	       151 ns/op
+BenchmarkLine1000-12          	 5000000	       278 ns/op
+BenchmarkLine10000-12         	  500000	      2625 ns/op
+BenchmarkLine1e5-12           	   50000	     25200 ns/op
+BenchmarkLine1e6-12           	   10000	    142944 ns/op
 
 PASS
-ok  	github.com/covrom/highloadcup2018/intsearch	64.417s
+ok  	github.com/covrom/highloadcup2018/intsearch	75.429s

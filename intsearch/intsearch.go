@@ -25,6 +25,10 @@ func AsmSearchInts(array []uint32, key uint32) uint32 {
 	return stdSearch(array, key)
 }
 
+func LineSearchInts(array []uint32, key uint32) uint32 {
+	return lineSearch(array, key)
+}
+
 // modified from http://data.linkedin.com/blog/2010/06/beating-binary-search
 
 // Search finds the lowest value of i such that keyAt(i) = key or keyAt(i+1) > key.
@@ -122,4 +126,13 @@ func binSearch(a []uint32, x uint32) uint32 {
 		}
 	}
 	return i
+}
+
+func lineSearch(a []uint32, x uint32) uint32 {
+	for i, v := range a {
+		if x == v {
+			return uint32(i)
+		}
+	}
+	return uint32(len(a))
 }

@@ -86,6 +86,14 @@ func BenchmarkBinApprox10000(b *testing.B) { benchmarkSearch(b, 10000, BinApprox
 func BenchmarkBinApprox1e5(b *testing.B)   { benchmarkSearch(b, 1e5, BinApproxSearchInts) }
 func BenchmarkBinApprox1e6(b *testing.B)   { benchmarkSearch(b, 1e6, BinApproxSearchInts) }
 
+func BenchmarkLine100(b *testing.B)   { benchmarkSearch(b, 100, LineSearchInts) }
+func BenchmarkLine200(b *testing.B)   { benchmarkSearch(b, 200, LineSearchInts) }
+func BenchmarkLine500(b *testing.B)   { benchmarkSearch(b, 500, LineSearchInts) }
+func BenchmarkLine1000(b *testing.B)  { benchmarkSearch(b, 1000, LineSearchInts) }
+func BenchmarkLine10000(b *testing.B) { benchmarkSearch(b, 10000, LineSearchInts) }
+func BenchmarkLine1e5(b *testing.B)   { benchmarkSearch(b, 1e5, LineSearchInts) }
+func BenchmarkLine1e6(b *testing.B)   { benchmarkSearch(b, 1e6, LineSearchInts) }
+
 func TestSearchSmall(t *testing.T) {
 
 	rand.Seed(0)

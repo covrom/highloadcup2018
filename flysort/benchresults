@@ -2,17 +2,14 @@ goos: linux
 goarch: amd64
 pkg: github.com/covrom/highloadcup2018/flysort
 
-BenchmarkInserts/HeapInsert100-4         	200000000	        11.5 ns/op
-BenchmarkInserts/SortInsert100-4         	50000000	        30.4 ns/op
-BenchmarkInserts/LineInsert100-4         	100000000	        25.8 ns/op
+BenchmarkInserts/SortInsert100-12         	50000000	        29.8 ns/op
+BenchmarkInserts/LineInsert100-12         	50000000	        26.5 ns/op
 
-BenchmarkInserts/HeapInsert1000-4        	200000000	        12.5 ns/op
-BenchmarkInserts/SortInsert1000-4        	20000000	       155 ns/op
-BenchmarkInserts/LineInsert1000-4        	100000000	       106 ns/op
+BenchmarkInserts/SortInsert1000-12        	10000000	       154 ns/op
+BenchmarkInserts/LineInsert1000-12        	10000000	       146 ns/op
 
-BenchmarkInserts/HeapInsert10000-4       	200000000	         8.93 ns/op
-BenchmarkInserts/SortInsert10000-4       	 1000000	      2708 ns/op
-BenchmarkInserts/LineInsert10000-4       	100000000	       271 ns/op
+BenchmarkInserts/SortInsert10000-12       	 1000000	      1950 ns/op
+BenchmarkInserts/LineInsert10000-12       	 1000000	      1932 ns/op
 
 PASS
-ok  	github.com/covrom/highloadcup2018/flysort	57.258s
+ok  	github.com/covrom/highloadcup2018/flysort	10.092s
