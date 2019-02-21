@@ -69,7 +69,18 @@ func BenchmarkInserts(b *testing.B) {
 	if Ints == nil {
 		fillInts()
 	}
-	b.Run("HeapInsert", BenchHeapInsert)
-	b.Run("SortInsert", BenchSortInsert)
-	b.Run("LineInsert", BenchLineInsert)
+	heapLimit = 100
+	b.Run("HeapInsert100", BenchHeapInsert)
+	b.Run("SortInsert100", BenchSortInsert)
+	b.Run("LineInsert100", BenchLineInsert)
+
+	heapLimit = 1000
+	b.Run("HeapInsert1000", BenchHeapInsert)
+	b.Run("SortInsert1000", BenchSortInsert)
+	b.Run("LineInsert1000", BenchLineInsert)
+
+	heapLimit = 10000
+	b.Run("HeapInsert10000", BenchHeapInsert)
+	b.Run("SortInsert10000", BenchSortInsert)
+	b.Run("LineInsert10000", BenchLineInsert)
 }

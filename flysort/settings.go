@@ -1,3 +1,3 @@
 package flysort
 
-const heapLimit = 100
+var heapLimit = 100
