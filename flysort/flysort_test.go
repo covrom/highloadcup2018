@@ -84,3 +84,41 @@ func BenchmarkInserts(b *testing.B) {
 	b.Run("SortInsert10000", BenchSortInsert)
 	b.Run("LineInsert10000", BenchLineInsert)
 }
+
+func TestAll(t *testing.T) {
+
+	rand.Seed(0)
+
+	if Ints == nil {
+		fillInts()
+	}
+
+	heapLimit = 100
+
+	h1 := new(heapInts)
+	h2 := new(heapInts)
+	h3 := new(heapInts)
+
+	elt := 0
+	for i := 0; i < 100000; i++ {
+		PushHeap(h1, Ints[elt])
+		SortInsert(h2, Ints[elt])
+		LineInsert(h3, Ints[elt])
+		elt++
+		if elt >= len(Ints) {
+			elt = 0
+		}
+	}
+
+	for i := range *h3 {
+
+		v1 := PopHeap(h1)
+		v2 := (*h2)[i]
+		v3 := (*h3)[i]
+
+		if v1 != v2 || v2 != v3 {
+			t.Errorf("idx=%v, v1=%v, v2=%v, v3=%v", i, v1, v2, v3)
+		}
+
+	}
+}
