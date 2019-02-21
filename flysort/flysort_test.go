@@ -17,7 +17,7 @@ func fillInts() {
 	}
 }
 
-func BenchmarkHeapInsert(b *testing.B) {
+func BenchHeapInsert(b *testing.B) {
 	if Ints == nil {
 		fillInts()
 	}
@@ -33,7 +33,7 @@ func BenchmarkHeapInsert(b *testing.B) {
 	}
 }
 
-func BenchmarkSortInsert(b *testing.B) {
+func BenchSortInsert(b *testing.B) {
 	if Ints == nil {
 		fillInts()
 	}
@@ -49,7 +49,7 @@ func BenchmarkSortInsert(b *testing.B) {
 	}
 }
 
-func BenchmarkLineInsert(b *testing.B) {
+func BenchLineInsert(b *testing.B) {
 	if Ints == nil {
 		fillInts()
 	}
@@ -63,4 +63,13 @@ func BenchmarkLineInsert(b *testing.B) {
 			elt = 0
 		}
 	}
+}
+
+func BenchmarkInserts(b *testing.B) {
+	if Ints == nil {
+		fillInts()
+	}
+	b.Run("HeapInsert", BenchHeapInsert)
+	b.Run("SortInsert", BenchSortInsert)
+	b.Run("LineInsert", BenchLineInsert)
 }

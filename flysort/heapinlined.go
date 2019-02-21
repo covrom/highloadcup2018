@@ -1,7 +1,5 @@
 package flysort
 
-const heapLimit = 100
-
 // limited min-heap
 type heapInts []int
 

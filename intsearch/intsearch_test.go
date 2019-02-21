@@ -46,19 +46,25 @@ func benchmarkSearch(b *testing.B, limit int, search func([]uint32, uint32) uint
 	}
 }
 
-func BenchmarkInterp100(b *testing.B)   { benchmarkSearch(b, 100, SearchInts) }
-func BenchmarkInterp1000(b *testing.B)  { benchmarkSearch(b, 1000, SearchInts) }
-func BenchmarkInterp10000(b *testing.B) { benchmarkSearch(b, 10000, SearchInts) }
-func BenchmarkInterp1e5(b *testing.B)   { benchmarkSearch(b, 1e5, SearchInts) }
-func BenchmarkInterp1e6(b *testing.B)   { benchmarkSearch(b, 1e6, SearchInts) }
-
 func BenchmarkStd100(b *testing.B)   { benchmarkSearch(b, 100, StdSearchInts) }
+func BenchmarkStd200(b *testing.B)   { benchmarkSearch(b, 200, StdSearchInts) }
+func BenchmarkStd500(b *testing.B)   { benchmarkSearch(b, 500, StdSearchInts) }
 func BenchmarkStd1000(b *testing.B)  { benchmarkSearch(b, 1000, StdSearchInts) }
 func BenchmarkStd10000(b *testing.B) { benchmarkSearch(b, 10000, StdSearchInts) }
 func BenchmarkStd1e5(b *testing.B)   { benchmarkSearch(b, 1e5, StdSearchInts) }
 func BenchmarkStd1e6(b *testing.B)   { benchmarkSearch(b, 1e6, StdSearchInts) }
 
+func BenchmarkInterp100(b *testing.B)   { benchmarkSearch(b, 100, InterpolationSearchInts) }
+func BenchmarkInterp200(b *testing.B)   { benchmarkSearch(b, 200, InterpolationSearchInts) }
+func BenchmarkInterp500(b *testing.B)   { benchmarkSearch(b, 500, InterpolationSearchInts) }
+func BenchmarkInterp1000(b *testing.B)  { benchmarkSearch(b, 1000, InterpolationSearchInts) }
+func BenchmarkInterp10000(b *testing.B) { benchmarkSearch(b, 10000, InterpolationSearchInts) }
+func BenchmarkInterp1e5(b *testing.B)   { benchmarkSearch(b, 1e5, InterpolationSearchInts) }
+func BenchmarkInterp1e6(b *testing.B)   { benchmarkSearch(b, 1e6, InterpolationSearchInts) }
+
 func BenchmarkAsm100(b *testing.B)   { benchmarkSearch(b, 100, AsmSearchInts) }
+func BenchmarkAsm200(b *testing.B)   { benchmarkSearch(b, 200, AsmSearchInts) }
+func BenchmarkAsm500(b *testing.B)   { benchmarkSearch(b, 500, AsmSearchInts) }
 func BenchmarkAsm1000(b *testing.B)  { benchmarkSearch(b, 1000, AsmSearchInts) }
 func BenchmarkAsm10000(b *testing.B) { benchmarkSearch(b, 10000, AsmSearchInts) }
 func BenchmarkAsm1e5(b *testing.B)   { benchmarkSearch(b, 1e5, AsmSearchInts) }
@@ -105,8 +111,8 @@ func TestSearchSmall(t *testing.T) {
 		if idx := StdSearchInts(ints, q); idx != uint32(want) {
 			t.Errorf("StdSearchInts(ints, %v)=%v, want %v", q, idx, want)
 		}
-		if idx := SearchInts(ints, q); idx != uint32(want) {
-			t.Errorf("SearchInts(ints, %v)=%v, want %v", q, idx, want)
+		if idx := InterpolationSearchInts(ints, q); idx != uint32(want) {
+			t.Errorf("InterpolationSearchInts(ints, %v)=%v, want %v", q, idx, want)
 		}
 	}
 
@@ -128,8 +134,8 @@ func TestSearchSmall(t *testing.T) {
 		if idx := StdSearchInts(ints, q); idx != uint32(want) {
 			t.Errorf("StdSearchInts(ints, %v)=%v, want %v", q, idx, want)
 		}
-		if idx := SearchInts(ints, q); idx != uint32(want) {
-			t.Errorf("SearchInts(ints, %v)=%v, want %v", q, idx, want)
+		if idx := InterpolationSearchInts(ints, q); idx != uint32(want) {
+			t.Errorf("InterpolationSearchInts(ints, %v)=%v, want %v", q, idx, want)
 		}
 	}
 }

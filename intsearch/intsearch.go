@@ -5,16 +5,12 @@ import (
 )
 
 // SearchInts searches the array for the key, returning the index of the first occurrence of the element.
-func SearchInts(array []uint32, key uint32) uint32 {
-	return uint32(interpSearch(array, key))
-}
-
-func AsmSearchInts(array []uint32, key uint32) uint32 {
-	return stdSearch(array, key)
-}
-
 func StdSearchInts(array []uint32, key uint32) uint32 {
 	return uint32(sort.Search(len(array), func(i int) bool { return array[i] >= key }))
+}
+
+func InterpolationSearchInts(array []uint32, key uint32) uint32 {
+	return uint32(interpSearch(array, key))
 }
 
 func BinSearchInts(array []uint32, key uint32) uint32 {
@@ -23,6 +19,10 @@ func BinSearchInts(array []uint32, key uint32) uint32 {
 
 func BinApproxSearchInts(array []uint32, key uint32) uint32 {
 	return binApproxSearch(array, key)
+}
+
+func AsmSearchInts(array []uint32, key uint32) uint32 {
+	return stdSearch(array, key)
 }
 
 // modified from http://data.linkedin.com/blog/2010/06/beating-binary-search
