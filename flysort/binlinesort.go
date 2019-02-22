@@ -47,24 +47,22 @@ func LineUnrollInsert(a heapInts, num int) heapInts {
 				a[i] = num
 				return a
 			}
-			i++
-			if a[i] >= num {
-				copy(a[i+1:], a[i:])
-				a[i] = num
+			if a[i+1] >= num {
+				copy(a[i+2:], a[i+1:])
+				a[i+1] = num
 				return a
 			}
-			i++
-			if a[i] >= num {
-				copy(a[i+1:], a[i:])
-				a[i] = num
+			if a[i+2] >= num {
+				copy(a[i+3:], a[i+2:])
+				a[i+2] = num
 				return a
 			}
-			i++
-			if a[i] >= num {
-				copy(a[i+1:], a[i:])
-				a[i] = num
+			if a[i+3] >= num {
+				copy(a[i+4:], a[i+3:])
+				a[i+3] = num
 				return a
 			}
+			i += 3
 		} else {
 			if v >= num {
 				copy(a[i+1:], a[i:])
