@@ -16,8 +16,14 @@ func InitHeap(h *heapInts) {
 
 func PushHeap(h *heapInts, x int) {
 	n := len(*h)
-	*h = append(*h, x)
-	upHeap(h, n)
+	if n < heapLimit {
+		*h = append(*h, x)
+		upHeap(h, n)
+	} else if x >= (*h)[0] {
+		// collect only max N
+		(*h)[0] = x
+		downHeap(h, 0, n)
+	}
 }
 
 func PopHeap(h *heapInts) int {
