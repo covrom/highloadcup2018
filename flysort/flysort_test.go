@@ -102,12 +102,14 @@ func TestAll(t *testing.T) {
 
 	h1 := make(heapInts, 0, heapLimit)
 	h2 := make(heapInts, 0, heapLimit)
+	h3 := make(heapInts, 0, heapLimit)
 
 	elt := 0
 	for i := 0; i < 100000; i++ {
 		v := Ints[elt]
 		h1 = SortInsert(h1, v)
 		h2 = LineInsert(h2, v)
+		h3 = LineUnrollInsert(h3, v)
 		elt++
 		if elt >= len(Ints) {
 			elt = 0
@@ -122,8 +124,9 @@ func TestAll(t *testing.T) {
 	for i := range h2 {
 		v1 := h1[i]
 		v2 := h2[i]
-		if v1 != v2 {
-			t.Errorf("idx=%v, v1=%v, v2=%v", i, v1, v2)
+		v3 := h3[i]
+		if v1 != v2 || v2 != v3 {
+			t.Errorf("idx=%v, v1=%v, v2=%v, v3=%v", i, v1, v2, v3)
 		}
 	}
 }
