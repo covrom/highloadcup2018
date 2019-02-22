@@ -58,8 +58,8 @@ func LineUnrollInsert(a heapInts, num int) heapInts {
 		default:
 			continue
 		}
-		copy(a[j+1:], a[j:])
-		a[j] = num
+		copy(a[i+int(j)+1:], a[i+int(j):])
+		a[i+int(j)] = num
 		return a
 	}
 	for i := ln4; i < len(a); i++ {

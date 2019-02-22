@@ -105,7 +105,7 @@ func TestAll(t *testing.T) {
 	h3 := make(heapInts, 0, heapLimit)
 
 	elt := 0
-	for i := 0; i < 100000; i++ {
+	for i := 0; i < 100; i++ {
 		v := Ints[elt]
 		h1 = SortInsert(h1, v)
 		h2 = LineInsert(h2, v)
@@ -120,6 +120,8 @@ func TestAll(t *testing.T) {
 	t.Log(h1)
 	t.Log(len(h2))
 	t.Log(h2)
+	t.Log(len(h3))
+	t.Log(h3)
 
 	for i := range h2 {
 		v1 := h1[i]
