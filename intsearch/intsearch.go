@@ -29,6 +29,10 @@ func LineSearchInts(array []uint32, key uint32) uint32 {
 	return lineSearch(array, key)
 }
 
+func CsBinSearchInts(array []uint32, key uint32) uint32 {
+	return csbinSearch(array, key)
+}
+
 // modified from http://data.linkedin.com/blog/2010/06/beating-binary-search
 
 // Search finds the lowest value of i such that keyAt(i) = key or keyAt(i+1) > key.
@@ -135,4 +139,22 @@ func lineSearch(a []uint32, x uint32) uint32 {
 		}
 	}
 	return uint32(len(a))
+}
+
+func csbinSearch(a []uint32, x uint32) uint32 {
+	n := uint32(len(a))
+	i, j := uint32(0), n
+	for i < j {
+		h := (i + j) >> 1
+		// cache test
+		for ii := h; (ii < h+16) && (ii < j); ii++ {
+			if a[ii] < x {
+				i = ii + 1
+			} else {
+				j = ii
+				break
+			}
+		}
+	}
+	return i
 }

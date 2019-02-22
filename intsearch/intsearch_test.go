@@ -78,6 +78,14 @@ func BenchmarkBin10000(b *testing.B) { benchmarkSearch(b, 10000, BinSearchInts) 
 func BenchmarkBin1e5(b *testing.B)   { benchmarkSearch(b, 1e5, BinSearchInts) }
 func BenchmarkBin1e6(b *testing.B)   { benchmarkSearch(b, 1e6, BinSearchInts) }
 
+func BenchmarkCsBin100(b *testing.B)   { benchmarkSearch(b, 100, CsBinSearchInts) }
+func BenchmarkCsBin200(b *testing.B)   { benchmarkSearch(b, 200, CsBinSearchInts) }
+func BenchmarkCsBin500(b *testing.B)   { benchmarkSearch(b, 500, CsBinSearchInts) }
+func BenchmarkCsBin1000(b *testing.B)  { benchmarkSearch(b, 1000, CsBinSearchInts) }
+func BenchmarkCsBin10000(b *testing.B) { benchmarkSearch(b, 10000, CsBinSearchInts) }
+func BenchmarkCsBin1e5(b *testing.B)   { benchmarkSearch(b, 1e5, CsBinSearchInts) }
+func BenchmarkCsBin1e6(b *testing.B)   { benchmarkSearch(b, 1e6, CsBinSearchInts) }
+
 func BenchmarkBinApprox100(b *testing.B)   { benchmarkSearch(b, 100, BinApproxSearchInts) }
 func BenchmarkBinApprox200(b *testing.B)   { benchmarkSearch(b, 200, BinApproxSearchInts) }
 func BenchmarkBinApprox500(b *testing.B)   { benchmarkSearch(b, 500, BinApproxSearchInts) }
@@ -113,6 +121,9 @@ func TestSearchSmall(t *testing.T) {
 		if idx := BinSearchInts(ints, q); idx != uint32(want) {
 			t.Errorf("BinSearchInts(ints, %v)=%v, want %v", q, idx, want)
 		}
+		if idx := CsBinSearchInts(ints, q); idx != uint32(want) {
+			t.Errorf("CsBinSearchInts(ints, %v)=%v, want %v", q, idx, want)
+		}
 		if idx := LineSearchInts(ints, q); idx != uint32(want) {
 			t.Errorf("LineSearchInts(ints, %v)=%v, want %v", q, idx, want)
 		}
@@ -138,6 +149,9 @@ func TestSearchSmall(t *testing.T) {
 		}
 		if idx := BinSearchInts(ints, q); idx != uint32(want) {
 			t.Errorf("BinSearchInts(ints, %v)=%v, want %v", q, idx, want)
+		}
+		if idx := CsBinSearchInts(ints, q); idx != uint32(want) {
+			t.Errorf("CsBinSearchInts(ints, %v)=%v, want %v", q, idx, want)
 		}
 		if idx := LineSearchInts(ints, q); idx != uint32(want) {
 			t.Errorf("LineSearchInts(ints, %v)=%v, want %v", q, idx, want)
