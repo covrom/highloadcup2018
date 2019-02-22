@@ -49,6 +49,22 @@ func BenchLineInsert(b *testing.B) {
 	}
 }
 
+func BenchLineUnrollInsert(b *testing.B) {
+	if Ints == nil {
+		fillInts()
+	}
+	elt := 0
+	h := make(heapInts, 0, heapLimit)
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		h = LineUnrollInsert(h, Ints[elt])
+		elt++
+		if elt >= len(Ints) {
+			elt = 0
+		}
+	}
+}
+
 func BenchmarkInserts(b *testing.B) {
 	if Ints == nil {
 		fillInts()
@@ -56,18 +72,22 @@ func BenchmarkInserts(b *testing.B) {
 	heapLimit = 100
 	b.Run("SortInsert100", BenchSortInsert)
 	b.Run("LineInsert100", BenchLineInsert)
+	b.Run("LineUnrollInsert100", BenchLineUnrollInsert)
 
 	heapLimit = 1000
 	b.Run("SortInsert1000", BenchSortInsert)
 	b.Run("LineInsert1000", BenchLineInsert)
+	b.Run("LineUnrollInsert1000", BenchLineUnrollInsert)
 
 	heapLimit = 10000
 	b.Run("SortInsert10000", BenchSortInsert)
 	b.Run("LineInsert10000", BenchLineInsert)
+	b.Run("LineUnrollInsert10000", BenchLineUnrollInsert)
 
 	heapLimit = 100000
 	b.Run("SortInsert100000", BenchSortInsert)
 	b.Run("LineInsert100000", BenchLineInsert)
+	b.Run("LineUnrollInsert100000", BenchLineUnrollInsert)
 }
 
 func TestAll(t *testing.T) {
