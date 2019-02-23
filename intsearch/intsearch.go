@@ -165,12 +165,12 @@ func csbinSearch(a []uint32, x uint32) uint32 {
 }
 
 func unsafeBinSearch(a []uint32, x uint32) uint32 {
-	p := *(*uintptr)(unsafe.Pointer(&a))
 	n := uint32(len(a))
 	i, j := uint32(0), n
+	// p := (*[1 << 33]uint32)(unsafe.Pointer(&a[0]))
 	for i < j {
 		h := (i + j) >> 1
-		if *(*uint32)(unsafe.Pointer(p + 4*uintptr(h))) < x { // a[h] < x {
+		if (*[1 << 33]uint32)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(&a))))[h] < x { // a[h] < x {
 			i = h + 1
 		} else {
 			j = h
