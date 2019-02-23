@@ -3,8 +3,13 @@ package intsearch
 import "unsafe"
 
 func unsafeBinSearch(a []uint32, x uint32) uint32 {
-	p := (*[1 << 31]uint32)(unsafe.Pointer(&a[0]))
 	n := uint32(len(a))
+
+	p := (*[1 << 31]uint32)(unsafe.Pointer(&a[0]))
+	if n == 0 || p == nil {
+		return 0
+	}
+
 	i, j := uint32(0), n
 	for i < j {
 		h := (i + j) >> 1
