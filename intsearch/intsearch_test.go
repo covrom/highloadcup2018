@@ -86,6 +86,14 @@ func BenchmarkCsBin10000(b *testing.B) { benchmarkSearch(b, 10000, CsBinSearchIn
 func BenchmarkCsBin1e5(b *testing.B)   { benchmarkSearch(b, 1e5, CsBinSearchInts) }
 func BenchmarkCsBin1e6(b *testing.B)   { benchmarkSearch(b, 1e6, CsBinSearchInts) }
 
+func BenchmarkUnsafeBin100(b *testing.B)   { benchmarkSearch(b, 100, UnsafeBinSearchInts) }
+func BenchmarkUnsafeBin200(b *testing.B)   { benchmarkSearch(b, 200, UnsafeBinSearchInts) }
+func BenchmarkUnsafeBin500(b *testing.B)   { benchmarkSearch(b, 500, UnsafeBinSearchInts) }
+func BenchmarkUnsafeBin1000(b *testing.B)  { benchmarkSearch(b, 1000, UnsafeBinSearchInts) }
+func BenchmarkUnsafeBin10000(b *testing.B) { benchmarkSearch(b, 10000, UnsafeBinSearchInts) }
+func BenchmarkUnsafeBin1e5(b *testing.B)   { benchmarkSearch(b, 1e5, UnsafeBinSearchInts) }
+func BenchmarkUnsafeBin1e6(b *testing.B)   { benchmarkSearch(b, 1e6, UnsafeBinSearchInts) }
+
 func BenchmarkBinApprox100(b *testing.B)   { benchmarkSearch(b, 100, BinApproxSearchInts) }
 func BenchmarkBinApprox200(b *testing.B)   { benchmarkSearch(b, 200, BinApproxSearchInts) }
 func BenchmarkBinApprox500(b *testing.B)   { benchmarkSearch(b, 500, BinApproxSearchInts) }
@@ -124,6 +132,9 @@ func TestSearchSmall(t *testing.T) {
 		if idx := CsBinSearchInts(ints, q); idx != uint32(want) {
 			t.Errorf("CsBinSearchInts(ints, %v)=%v, want %v", q, idx, want)
 		}
+		if idx := UnsafeBinSearchInts(ints, q); idx != uint32(want) {
+			t.Errorf("UnsafeBinSearchInts(ints, %v)=%v, want %v", q, idx, want)
+		}
 		if idx := LineSearchInts(ints, q); idx != uint32(want) {
 			t.Errorf("LineSearchInts(ints, %v)=%v, want %v", q, idx, want)
 		}
@@ -152,6 +163,9 @@ func TestSearchSmall(t *testing.T) {
 		}
 		if idx := CsBinSearchInts(ints, q); idx != uint32(want) {
 			t.Errorf("CsBinSearchInts(ints, %v)=%v, want %v", q, idx, want)
+		}
+		if idx := UnsafeBinSearchInts(ints, q); idx != uint32(want) {
+			t.Errorf("UnsafeBinSearchInts(ints, %v)=%v, want %v", q, idx, want)
 		}
 		if idx := LineSearchInts(ints, q); idx != uint32(want) {
 			t.Errorf("LineSearchInts(ints, %v)=%v, want %v", q, idx, want)

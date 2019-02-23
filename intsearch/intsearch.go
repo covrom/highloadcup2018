@@ -2,6 +2,7 @@ package intsearch
 
 import (
 	"sort"
+	"unsafe"
 )
 
 // SearchInts searches the array for the key, returning the index of the first occurrence of the element.
@@ -31,6 +32,10 @@ func LineSearchInts(array []uint32, key uint32) uint32 {
 
 func CsBinSearchInts(array []uint32, key uint32) uint32 {
 	return csbinSearch(array, key)
+}
+
+func UnsafeBinSearchInts(array []uint32, key uint32) uint32 {
+	return unsafeBinSearch(array, key)
 }
 
 // modified from http://data.linkedin.com/blog/2010/06/beating-binary-search
@@ -154,6 +159,20 @@ func csbinSearch(a []uint32, x uint32) uint32 {
 				j = ii
 				break
 			}
+		}
+	}
+	return i
+}
+
+func unsafeBinSearch(a []uint32, x uint32) uint32 {
+	n := uint32(len(a))
+	i, j := uint32(0), n
+	for i < j {
+		h := (i + j) >> 1
+		if *(*uint32)(unsafe.Pointer(*(*uintptr)(unsafe.Pointer(&a)) + uintptr(h*4))) < x { // a[h] < x {
+			i = h + 1
+		} else {
+			j = h
 		}
 	}
 	return i
