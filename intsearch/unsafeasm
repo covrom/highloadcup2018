@@ -1,4 +1,4 @@
-"".unsafeBinSearch STEXT nosplit size=96 args=0x28 locals=0x8
+"".unsafeBinSearch STEXT nosplit size=80 args=0x28 locals=0x8
 	0x0000 00000 (intunsafe.go:5)	TEXT	"".unsafeBinSearch(SB), NOSPLIT, $8-40
 	0x0000 00000 (intunsafe.go:5)	SUBQ	$8, SP
 	0x0004 00004 (intunsafe.go:5)	MOVQ	BP, (SP)
@@ -10,56 +10,50 @@
 	0x000c 00012 (intunsafe.go:6)	PCDATA	$0, $0
 	0x000c 00012 (intunsafe.go:6)	MOVQ	"".a+24(SP), AX
 	0x0011 00017 (intunsafe.go:6)	TESTQ	AX, AX
-	0x0014 00020 (intunsafe.go:6)	JLS	89
+	0x0014 00020 (intunsafe.go:6)	JLS	73
 	0x0016 00022 (intunsafe.go:9)	MOVL	"".x+40(SP), CX
 	0x001a 00026 (intunsafe.go:9)	PCDATA	$2, $1
 	0x001a 00026 (intunsafe.go:9)	PCDATA	$0, $1
 	0x001a 00026 (intunsafe.go:9)	MOVQ	"".a+16(SP), DX
 	0x001f 00031 (intunsafe.go:9)	XORL	BX, BX
 	0x0021 00033 (intunsafe.go:9)	CMPL	BX, AX
-	0x0023 00035 (intunsafe.go:9)	JCC	69
+	0x0023 00035 (intunsafe.go:9)	JCC	60
 	0x0025 00037 (intunsafe.go:11)	TESTB	AL, (DX)
 	0x0027 00039 (intunsafe.go:10)	LEAL	(BX)(AX*1), SI
 	0x002a 00042 (intunsafe.go:10)	SHRL	$1, SI
-	0x002c 00044 (intunsafe.go:11)	CMPQ	SI, $268435456
-	0x0033 00051 (intunsafe.go:11)	JCC	82
-	0x0035 00053 (intunsafe.go:11)	MOVL	(DX)(SI*4), DI
-	0x0038 00056 (intunsafe.go:11)	CMPL	DI, CX
-	0x003a 00058 (intunsafe.go:11)	JCC	65
-	0x003c 00060 (intunsafe.go:12)	LEAL	1(SI), BX
-	0x003f 00063 (intunsafe.go:12)	JMP	33
-	0x0041 00065 (intunsafe.go:9)	MOVL	SI, AX
-	0x0043 00067 (intunsafe.go:14)	JMP	33
-	0x0045 00069 (intunsafe.go:17)	PCDATA	$2, $0
-	0x0045 00069 (intunsafe.go:17)	MOVL	BX, "".~r2+48(SP)
-	0x0049 00073 (intunsafe.go:17)	MOVQ	(SP), BP
-	0x004d 00077 (intunsafe.go:17)	ADDQ	$8, SP
-	0x0051 00081 (intunsafe.go:17)	RET
-	0x0052 00082 (intunsafe.go:11)	CALL	runtime.panicindex(SB)
-	0x0057 00087 (intunsafe.go:11)	UNDEF
-	0x0059 00089 (intunsafe.go:6)	CALL	runtime.panicindex(SB)
-	0x005e 00094 (intunsafe.go:6)	UNDEF
+	0x002c 00044 (intunsafe.go:11)	MOVL	(DX)(SI*4), DI
+	0x002f 00047 (intunsafe.go:11)	CMPL	DI, CX
+	0x0031 00049 (intunsafe.go:11)	JCC	56
+	0x0033 00051 (intunsafe.go:12)	LEAL	1(SI), BX
+	0x0036 00054 (intunsafe.go:12)	JMP	33
+	0x0038 00056 (intunsafe.go:9)	MOVL	SI, AX
+	0x003a 00058 (intunsafe.go:14)	JMP	33
+	0x003c 00060 (intunsafe.go:17)	PCDATA	$2, $0
+	0x003c 00060 (intunsafe.go:17)	MOVL	BX, "".~r2+48(SP)
+	0x0040 00064 (intunsafe.go:17)	MOVQ	(SP), BP
+	0x0044 00068 (intunsafe.go:17)	ADDQ	$8, SP
+	0x0048 00072 (intunsafe.go:17)	RET
+	0x0049 00073 (intunsafe.go:6)	CALL	runtime.panicindex(SB)
+	0x004e 00078 (intunsafe.go:6)	UNDEF
 	0x0000 48 83 ec 08 48 89 2c 24 48 8d 2c 24 48 8b 44 24  H...H.,$H.,$H.D$
-	0x0010 18 48 85 c0 76 43 8b 4c 24 28 48 8b 54 24 10 31  .H..vC.L$(H.T$.1
-	0x0020 db 39 c3 73 20 84 02 8d 34 03 d1 ee 48 81 fe 00  .9.s ...4...H...
-	0x0030 00 00 10 73 1d 8b 3c b2 39 cf 73 05 8d 5e 01 eb  ...s..<.9.s..^..
-	0x0040 e0 89 f0 eb dc 89 5c 24 30 48 8b 2c 24 48 83 c4  ......\$0H.,$H..
-	0x0050 08 c3 e8 00 00 00 00 0f 0b e8 00 00 00 00 0f 0b  ................
-	rel 83+4 t=8 runtime.panicindex+0
-	rel 90+4 t=8 runtime.panicindex+0
+	0x0010 18 48 85 c0 76 33 8b 4c 24 28 48 8b 54 24 10 31  .H..v3.L$(H.T$.1
+	0x0020 db 39 c3 73 17 84 02 8d 34 03 d1 ee 8b 3c b2 39  .9.s....4....<.9
+	0x0030 cf 73 05 8d 5e 01 eb e9 89 f0 eb e5 89 5c 24 30  .s..^........\$0
+	0x0040 48 8b 2c 24 48 83 c4 08 c3 e8 00 00 00 00 0f 0b  H.,$H...........
+	rel 74+4 t=8 runtime.panicindex+0
 go.loc."".unsafeBinSearch SDWARFLOC size=211
 	0x0000 ff ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00  ................
-	0x0010 11 00 00 00 00 00 00 00 60 00 00 00 00 00 00 00  ........`.......
+	0x0010 11 00 00 00 00 00 00 00 50 00 00 00 00 00 00 00  ........P.......
 	0x0020 07 00 9c 93 08 91 08 93 08 00 00 00 00 00 00 00  ................
 	0x0030 00 00 00 00 00 00 00 00 00 ff ff ff ff ff ff ff  ................
 	0x0040 ff 00 00 00 00 00 00 00 00 23 00 00 00 00 00 00  .........#......
-	0x0050 00 57 00 00 00 00 00 00 00 01 00 53 00 00 00 00  .W.........S....
+	0x0050 00 50 00 00 00 00 00 00 00 01 00 53 00 00 00 00  .P.........S....
 	0x0060 00 00 00 00 00 00 00 00 00 00 00 00 ff ff ff ff  ................
 	0x0070 ff ff ff ff 00 00 00 00 00 00 00 00 23 00 00 00  ............#...
-	0x0080 00 00 00 00 43 00 00 00 00 00 00 00 01 00 50 00  ....C.........P.
+	0x0080 00 00 00 00 3a 00 00 00 00 00 00 00 01 00 50 00  ....:.........P.
 	0x0090 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ff  ................
 	0x00a0 ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00 11  ................
-	0x00b0 00 00 00 00 00 00 00 60 00 00 00 00 00 00 00 02  .......`........
+	0x00b0 00 00 00 00 00 00 00 50 00 00 00 00 00 00 00 02  .......P........
 	0x00c0 00 91 18 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
 	0x00d0 00 00 00                                         ...
 	rel 8+8 t=1 "".unsafeBinSearch+0
@@ -75,7 +69,7 @@ go.info."".unsafeBinSearch SDWARFINFO size=106
 	0x0050 0f 78 00 00 05 00 00 00 00 00 00 00 00 0e 7e 72  .x............~r
 	0x0060 32 00 01 05 00 00 00 00 00 00                    2.........
 	rel 20+8 t=1 "".unsafeBinSearch+0
-	rel 28+8 t=1 "".unsafeBinSearch+96
+	rel 28+8 t=1 "".unsafeBinSearch+80
 	rel 38+4 t=29 gofile../home/nmlh/go/src/github.com/covrom/highloadcup2018/intsearch/intunsafe.go+0
 	rel 48+4 t=28 go.info.[]uint32+0
 	rel 52+4 t=28 go.loc."".unsafeBinSearch+0
@@ -88,8 +82,8 @@ go.info."".unsafeBinSearch SDWARFINFO size=106
 	rel 100+4 t=28 go.info.uint32+0
 go.range."".unsafeBinSearch SDWARFRANGE size=0
 go.isstmt."".unsafeBinSearch SDWARFMISC size=0
-	0x0000 08 0c 03 05 01 10 02 02 01 02 02 05 01 12 02 03  ................
-	0x0010 01 04 02 06 01 0e 02 02 01 05 02 02 00           .............
+	0x0000 08 0c 03 05 01 10 02 02 01 02 02 05 01 09 02 03  ................
+	0x0010 01 04 02 06 01 0e 02 02 00                       .........
 runtime.gcbits.01 SRODATA dupok size=1
 	0x0000 01                                               .
 type..namedata.*[]uint32- SRODATA dupok size=12
