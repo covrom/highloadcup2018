@@ -2,6 +2,7 @@ package intsearch
 
 import "unsafe"
 
+// see https://github.com/golang/go/issues/30366
 func unsafeBinSearch(a []uint32, x uint32) uint32 {
 	n := uint32(len(a))
 
