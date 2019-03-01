@@ -1,10 +1,6 @@
 // References: https://en.wikipedia.org/wiki/AVL_tree
 package avltree
 
-import (
-	"fmt"
-)
-
 // Comparator will make type assertion (see IntComparator for example),
 // which will panic if a or b are not of the asserted type.
 //
@@ -32,45 +28,51 @@ func UInt32Comparator(a, b uint32) int {
 
 // Tree holds elements of the AVL tree.
 type Tree struct {
-	Root       *Node      // Root node
+	nodes      []node
+	root       int32      // Root node
 	Comparator Comparator // Key comparator
 	size       int        // Total number of keys in the tree
 }
 
+type KV struct {
+	Key   uint32
+	Value TreeValue
+}
+
 // Node is a single element within the tree
-type Node struct {
+type node struct {
 	Key      uint32
 	Value    TreeValue
-	Parent   *Node    // Parent node
-	Children [2]*Node // Children nodes
+	Parent   int32    // Parent node
+	Children [2]int32 // Children nodes
 	b        int8
 }
 
 // NewWithComparator instantiates an AVL tree with the Comparator, i.e. keys are of type int.
 func NewWithComparator(cmp Comparator) *Tree {
-	return &Tree{Comparator: cmp}
+	return &Tree{Comparator: cmp, root: -1}
 }
 
 // Put inserts node into the tree.
 // Key should adhere to the comparator's type assertion, otherwise method panics.
 func (t *Tree) Put(key uint32, value TreeValue) {
-	t.put(key, value, nil, &t.Root)
+	t.put(key, value, -1, &t.root)
 }
 
 // Get searches the node in the tree by key and returns its value or nil if key is not found in tree.
 // Second return parameter is true if key was found, otherwise false.
 // Key should adhere to the comparator's type assertion, otherwise method panics.
 func (t *Tree) Get(key uint32) (value TreeValue, found bool) {
-	n := t.Root
-	for n != nil {
-		cmp := t.Comparator(key, n.Key)
+	n := int32(0)
+	for n >= 0 && n < int32(len(t.nodes)) {
+		cmp := t.Comparator(key, t.nodes[n].Key)
 		switch {
 		case cmp == 0:
-			return n.Value, true
+			return t.nodes[n].Value, true
 		case cmp < 0:
-			n = n.Children[0]
+			n = t.nodes[n].Children[0]
 		case cmp > 0:
-			n = n.Children[1]
+			n = t.nodes[n].Children[1]
 		}
 	}
 	return nil, false
@@ -114,13 +116,13 @@ func (t *Tree) Values() []TreeValue {
 
 // Left returns the minimum element of the AVL tree
 // or nil if the tree is empty.
-func (t *Tree) Left() *Node {
+func (t *Tree) Left() KV {
 	return t.bottom(0)
 }
 
 // Right returns the maximum element of the AVL tree
 // or nil if the tree is empty.
-func (t *Tree) Right() *Node {
+func (t *Tree) Right() KV {
 	return t.bottom(1)
 }
 
@@ -132,25 +134,25 @@ func (t *Tree) Right() *Node {
 // all nodes in the tree is larger than the given node.
 //
 // Key should adhere to the comparator's type assertion, otherwise method panics.
-func (t *Tree) Floor(key uint32) (floor *Node, found bool) {
+func (t *Tree) Floor(key uint32) (floor KV, found bool) {
 	found = false
-	n := t.Root
-	for n != nil {
-		c := t.Comparator(key, n.Key)
+	n := int32(0)
+	for n >= 0 && n < int32(len(t.nodes)) {
+		c := t.Comparator(key, t.nodes[n].Key)
 		switch {
 		case c == 0:
-			return n, true
+			return KV{t.nodes[n].Key, t.nodes[n].Value}, true
 		case c < 0:
-			n = n.Children[0]
+			n = t.nodes[n].Children[0]
 		case c > 0:
-			floor, found = n, true
-			n = n.Children[1]
+			floor, found = KV{t.nodes[n].Key, t.nodes[n].Value}, true
+			n = t.nodes[n].Children[1]
 		}
 	}
 	if found {
 		return
 	}
-	return nil, false
+	return KV{}, false
 }
 
 // Ceiling finds ceiling node of the input key, return the ceiling node or nil if no ceiling is found.
@@ -161,25 +163,25 @@ func (t *Tree) Floor(key uint32) (floor *Node, found bool) {
 // all nodes in the tree is smaller than the given node.
 //
 // Key should adhere to the comparator's type assertion, otherwise method panics.
-func (t *Tree) Ceiling(key uint32) (floor *Node, found bool) {
+func (t *Tree) Ceiling(key uint32) (floor KV, found bool) {
 	found = false
-	n := t.Root
-	for n != nil {
-		c := t.Comparator(key, n.Key)
+	n := int32(0)
+	for n >= 0 && n < int32(len(t.nodes)) {
+		c := t.Comparator(key, t.nodes[n].Key)
 		switch {
 		case c == 0:
-			return n, true
+			return KV{t.nodes[n].Key, t.nodes[n].Value}, true
 		case c < 0:
-			floor, found = n, true
-			n = n.Children[0]
+			floor, found = KV{t.nodes[n].Key, t.nodes[n].Value}, true
+			n = t.nodes[n].Children[0]
 		case c > 0:
-			n = n.Children[1]
+			n = t.nodes[n].Children[1]
 		}
 	}
 	if found {
 		return
 	}
-	return nil, false
+	return KV{}, false
 }
 
 // Clear removes all nodes from the tree.
@@ -197,22 +199,25 @@ func (t *Tree) String() string {
 	return str
 }
 
-func (n *Node) String() string {
-	return fmt.Sprintf("%v", n.Key)
-}
-
-func (t *Tree) put(key uint32, value TreeValue, p *Node, qp **Node) bool {
+func (t *Tree) put(key uint32, value TreeValue, p int32, qp *int32) bool {
 	q := *qp
-	if q == nil {
+	nilnode := node{}
+	if p < 0 || q < 0 || t.nodes[q] == nilnode {
 		t.size++
-		*qp = &Node{Key: key, Value: value, Parent: p}
+		if q > 0 && q < int32(len(t.nodes)) {
+			t.nodes[q] = node{Key: key, Value: value, Parent: p}
+		} else {
+			idx := int32(len(t.nodes))
+			t.nodes = append(t.nodes, node{Key: key, Value: value, Parent: p, Children: [2]int32{-1, -1}})
+			*qp = idx
+		}
 		return true
 	}
 
-	c := t.Comparator(key, q.Key)
+	c := t.Comparator(key, t.nodes[q].Key)
 	if c == 0 {
-		q.Key = key
-		q.Value = value
+		t.nodes[q].Key = key
+		t.nodes[q].Value = value
 		return false
 	}
 
@@ -221,29 +226,30 @@ func (t *Tree) put(key uint32, value TreeValue, p *Node, qp **Node) bool {
 	} else {
 		c = 1
 	}
-	a := (c + 1) / 2
+	a := int8((c + 1) / 2)
 	var fix bool
-	fix = t.put(key, value, q, &q.Children[a])
+	fix = t.put(key, value, q, &t.nodes[q].Children[a])
 	if fix {
 		return putFix(int8(c), qp)
 	}
 	return false
 }
 
-func (t *Tree) remove(key uint32, qp **Node) bool {
+func (t *Tree) remove(key uint32, qp *int32) bool {
 	q := *qp
-	if q == nil {
+	if q < 0 {
 		return false
 	}
 
-	c := t.Comparator(key, q.Key)
+	c := t.Comparator(key, t.nodes[q].Key)
 	if c == 0 {
 		t.size--
-		if q.Children[1] == nil {
-			if q.Children[0] != nil {
-				q.Children[0].Parent = q.Parent
+		if t.nodes[q].Children[1] < 0 {
+			lch := t.nodes[q].Children[0]
+			if lch >= 0 {
+				t.nodes[t.nodes[q].Children[0].Parent] = t.nodes[t.nodes[q].Parent]
 			}
-			*qp = q.Children[0]
+			*qp = lch
 			return true
 		}
 		fix := removeMin(&q.Children[1], &q.Key, &q.Value)
