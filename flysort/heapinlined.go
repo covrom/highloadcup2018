@@ -1,5 +1,7 @@
 package flysort
 
+var heapLimit int
+
 // limited min-heap
 type heapInts []int
 
@@ -16,7 +18,7 @@ func InitHeap(h *heapInts) {
 
 func PushHeap(h *heapInts, x int) {
 	n := len(*h)
-	if n < heapLimit {
+	if heapLimit <= 0 || n < heapLimit {
 		*h = append(*h, x)
 		upHeap(h, n)
 	} else if x >= (*h)[0] {
@@ -31,7 +33,7 @@ func PopHeap(h *heapInts) int {
 	(*h)[0], (*h)[n] = (*h)[n], (*h)[0]
 	downHeap(h, 0, n)
 	x := (*h)[n]
-	*h = (*h)[0 : n-1]
+	*h = (*h)[:n]
 	return x
 }
 
